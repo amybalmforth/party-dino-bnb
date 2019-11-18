@@ -22,5 +22,25 @@ class Dinosaur_Bnb < Sinatra::Base
     erb :spaces
   end
 
+  get '/signup' do
+    erb :signup
+  end
+
+  post '/signup' do
+    # params[:name]
+    # params[:username]
+    # params[:email]
+    # params[:password]
+    redirect '/login'
+  end
+
+  get '/login' do
+    erb :login
+  end
+
+  post '/login' do
+    redirect '/spaces'
+  end
+
   run! if app_file == $0
 end
