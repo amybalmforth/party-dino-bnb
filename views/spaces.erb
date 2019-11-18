@@ -1,0 +1,6 @@
+<h1> A list of all spaces: </h1>
+<ul>
+  <% @spaces.each do |space| %>
+  <li>Name: <%= space.name %>, Description: <%= space.description %>, Price per day: <%= space.price %>, Available from: <%= space.available_from %>, Available to: <%= space.available_to %></li>
+  <% end %>
+</ul>
