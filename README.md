@@ -13,17 +13,17 @@
 
 # User Stories
 
-- User can sign up
-- User can list a space
-- User can create a space
-- User can see a list of available spaces
-- User can list more than one space
-- User can name a space
-- User can add a description to a space
-- User can give a space a price
-- User can edit an existing space
-- User can offer a range of dates when the space is available
-- A user can request to hire a space
-- A user can accept a request to hire a space
-- Booked spaces are no longer available
+- Owner can create a space
+- Owner can list a space
+- Renter can see a list of available spaces
+- Owner can name a space
+- Owner can add a description to a space
+- Owner can give a space a price
+- Owner can offer a range of dates when the space is available
+- Owner can edit an existing space
+- Owner can list more than one space
+- A renter can request to hire a space
+- An owner can accept a request to hire a space
 - Spaces are not booked until the owner accepts the booking
+- Booked spaces are no longer available
+- User can sign up
