@@ -29,6 +29,11 @@ require 'simplecov-console'
 require 'capybara'
 require 'rspec'
 
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+  SimpleCov::Formatter::Console,
+])
+SimpleCov.start
+
 RSpec.configure do |config|
 
   require File.join(File.dirname(__FILE__), '..', 'app.rb')
