@@ -1,8 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/student/Documents/Projects/group-projects/Party-Dinosaurs-BnB/app.rb": [
-        1,
+      "/Users/amybalmforth/Projects/makers/week6/Party-Dinosaurs-BnB/app.rb": [
         1,
         1,
         1,
@@ -10,7 +9,7 @@
         1,
         null,
         1,
-        2,
+        1,
         null,
         null,
         1,
@@ -23,36 +22,8 @@
         null,
         null,
         1,
-        2,
-        2,
-        null,
-        null,
-        1,
-        null
-      ],
-      "/Users/amybalmforth/Projects/makers/week6/Party-Dinosaurs-BnB/lib/space.rb": [
-        1,
-        null,
-        1,
-<<<<<<< HEAD
-        null,
-        1,
-        null,
-        1,
-        10,
-        10,
-        10,
-        10,
-        10,
-        10,
-        null,
-        null,
-        1,
-        5,
-        5,
-=======
-        1,
-        1,
+        3,
+        3,
         null,
         null,
         1,
@@ -78,7 +49,7 @@
         1,
         null
       ],
-      "/Users/student/Documents/Projects/group-projects/Party-Dinosaurs-BnB/lib/space.rb": [
+      "/Users/amybalmforth/Projects/makers/week6/Party-Dinosaurs-BnB/lib/space.rb": [
         1,
         null,
         1,
@@ -86,58 +57,41 @@
         1,
         null,
         1,
-        8,
-        8,
-        8,
-        8,
-        8,
-        8,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
         null,
         null,
         1,
-        4,
-        4,
->>>>>>> caf3e0ce6a2060e641317e10514002eccae00057
+        5,
+        5,
         null,
         0,
         null,
         null,
-<<<<<<< HEAD
         5,
         5,
         null,
         null,
         1,
-        3,
-        3,
-=======
         4,
         4,
-        null,
-        null,
-        1,
-        2,
-        2,
->>>>>>> caf3e0ce6a2060e641317e10514002eccae00057
         null,
         0,
         null,
         null,
-<<<<<<< HEAD
-        3,
-        3,
-        5,
-=======
-        2,
-        2,
         4,
->>>>>>> caf3e0ce6a2060e641317e10514002eccae00057
+        4,
+        5,
         null,
         null,
         null,
         null
       ],
-      "/Users/student/Documents/Projects/group-projects/Party-Dinosaurs-BnB/spec/features/create_space_spec.rb": [
+      "/Users/amybalmforth/Projects/makers/week6/Party-Dinosaurs-BnB/spec/features/create_space_spec.rb": [
         1,
         1,
         1,
@@ -219,39 +173,7 @@
         null,
         null
       ],
-      "/Users/student/Documents/Projects/group-projects/Party-Dinosaurs-BnB/spec/features/viewing_spaces_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/student/Documents/Projects/group-projects/Party-Dinosaurs-BnB/spec/space_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/student/Documents/Projects/group-projects/Party-Dinosaurs-BnB/spec/user_spec.rb": [
+      "/Users/amybalmforth/Projects/makers/week6/Party-Dinosaurs-BnB/spec/user_spec.rb": [
         1,
         null,
         1,
@@ -265,7 +187,7 @@
         null,
         null
       ],
-      "/Users/student/Documents/Projects/group-projects/Party-Dinosaurs-BnB/lib/user.rb": [
+      "/Users/amybalmforth/Projects/makers/week6/Party-Dinosaurs-BnB/lib/user.rb": [
         1,
         null,
         1,
@@ -291,10 +213,6 @@
         null
       ]
     },
-<<<<<<< HEAD
-    "timestamp": 1574092300
-=======
-    "timestamp": 1574091612
->>>>>>> caf3e0ce6a2060e641317e10514002eccae00057
+    "timestamp": 1574094955
   }
 }
