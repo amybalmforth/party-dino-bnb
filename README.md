@@ -1,6 +1,6 @@
-## Party Dinosaurs BnB
+# Party Dinosaurs BnB
 
-# Headline specs
+## Headline specs
 
 - Any signed-up user can list a new space.
 - Users can list multiple spaces.
@@ -11,7 +11,7 @@
 - Until a user has confirmed a booking request, that space can still be booked for that night.
 
 
-# User Stories
+## User Stories
 
 - Owner can create a space
 - Owner can list a space
