@@ -1,4 +1,4 @@
-# Party-Dinosaurs-BnB
+## Party Dinosaurs BnB
 
 # Headline specs
 
