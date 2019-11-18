@@ -2,8 +2,15 @@ require 'pg'
 
 class Spaces
 
-  def initialize(id:, name:, description:, price:, available_from:, available_to:)
+  attr_reader :name, :description, :price, :available_from, :available_to
 
+  def initialize(id:, name:, description:, price:, available_from:, available_to:)
+    @id = id
+    @name = name
+    @description = description
+    @price = price
+    @available_from = available_from
+    @available_to = available_to
   end
 
   def self.create(name:, description:, price:, available_from:, available_to:)
