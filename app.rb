@@ -4,6 +4,8 @@ require './lib/space'
 
 class Dinosaur_Bnb < Sinatra::Base
 
+  enable :sessions
+
   get '/' do
     erb(:index)
   end
@@ -39,6 +41,21 @@ class Dinosaur_Bnb < Sinatra::Base
   end
 
   post '/login' do
+    redirect '/spaces'
+  end
+
+  post '/spaces/edit' do
+    session['edit_space'] = Spaces.find('id', params[:Edit])
+    redirect '/spaces/edit'
+  end
+
+  get '/spaces/edit' do
+    @edit_space = session['edit_space']
+    erb :edit
+  end
+
+  post '/spaces/update' do
+    Spaces.update(id: session['edit_space'].id, name: params[:name], description: params[:description], price: params[:price], available_from: params[:available_from], available_to: params[:available_to])
     redirect '/spaces'
   end
 
