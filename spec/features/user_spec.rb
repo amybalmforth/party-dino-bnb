@@ -8,4 +8,12 @@ feature 'sign up' do
     click_button('submit')
     expect(page).to have_content 'Welcome to Jurassic Park, John Smith'
   end
+
+  scenario 'user can navigate to login page' do
+    visit('/')
+    click_button('Already got an account? Log in!')
+    expect(page).to have_content 'Fill in the form to log in...'
+
+  end
+
 end

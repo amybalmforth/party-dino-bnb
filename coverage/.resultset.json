@@ -11,7 +11,7 @@
         1,
         null,
         1,
-        1,
+        2,
         null,
         null,
         1,
@@ -39,7 +39,7 @@
         null,
         null,
         1,
-        0,
+        1,
         null,
         null,
         1,
@@ -181,6 +181,14 @@
         1,
         1,
         null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
         null
       ],
       "/Users/amybalmforth/Projects/makers/week6/Party-Dinosaurs-BnB/spec/features/viewing_spaces_spec.rb": [
@@ -230,6 +238,6 @@
         null
       ]
     },
-    "timestamp": 1574173699
+    "timestamp": 1574175267
   }
 }
