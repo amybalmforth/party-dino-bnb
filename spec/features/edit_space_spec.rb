@@ -17,7 +17,7 @@ feature 'edit spaces' do
     conn = PG.connect(dbname: 'party_dino_bnb_test')
     visit('/spaces')
     click_button 'Edit'
-    fill_in('name', with: 'bungalow', fill_options: {clear: :backspace})
+    fill_in "name", with: 'bungalow'
     save_and_open_page
     click_button 'update'
     expect(page).to have_content('bungalow')
