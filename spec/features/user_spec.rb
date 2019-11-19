@@ -13,6 +13,10 @@ feature 'sign up' do
     visit('/')
     click_button('Already got an account? Log in!')
     expect(page).to have_content 'Fill in the form to log in...'
+<<<<<<< HEAD
+=======
+
+>>>>>>> df0b2b43acc64c1c2e95876592d3d1747f6cae88
   end
 
 end
