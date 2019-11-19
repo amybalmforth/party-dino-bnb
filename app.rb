@@ -1,8 +1,10 @@
 require 'sinatra/base'
 require 'pg'
 require './lib/space'
+require './lib/user'
 
 class Dinosaur_Bnb < Sinatra::Base
+  enable :sessions
 
   get '/' do
     erb(:index)
@@ -18,6 +20,7 @@ class Dinosaur_Bnb < Sinatra::Base
   end
 
   get '/spaces' do
+    @user = session['user']
     @spaces = Spaces.all.reverse
     erb :spaces
   end
@@ -27,11 +30,8 @@ class Dinosaur_Bnb < Sinatra::Base
   end
 
   post '/signup' do
-    # params[:name]
-    # params[:username]
-    # params[:email]
-    # params[:password]
-    redirect '/login'
+    session['user'] = Users.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+    redirect '/spaces'
   end
 
   get '/login' do
