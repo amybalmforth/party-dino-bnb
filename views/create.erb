@@ -1,14 +1,15 @@
 List your property
 
-<form>
-  <label for="property name">Property Name</label>
-  <input type="text" name="Property Name"><br>
-  <label for="property description">Description</label>
-  <input type="text" name="Description"><br>
-  <label for="price per night">Price per night £</label>
-  <input data-type="currency" name="Price per night"><br>
-  <label for="available from">Available from</label>
-  <input type="date" name="Available from"><br>
-  <label for="available to">Available to</label>
-  <input type="date" name="Avaiable to"><br>
+<form action="/new-space" method="post">
+  <label for="property_name">Property Name</label>
+  <input type="text" name="property_name"><br>
+  <label for="description">Description</label>
+  <input type="text" name="description"><br>
+  <label for="price_per_night">Price per night £</label>
+  <input data-type="currency" name="price_per_night"><br>
+  <label for="available_from">Available from</label>
+  <input type="date" name="available_from"><br>
+  <label for="available_to">Available to</label>
+  <input type="date" name="available_to"><br>
+  <button>Submit</button>
 </form>

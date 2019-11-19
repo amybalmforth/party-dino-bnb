@@ -13,15 +13,15 @@
 
 ## User Stories
 
-- Owner can create a space
-- Owner can list a space
-- Renter can see a list of available spaces
-- Owner can name a space
-- Owner can add a description to a space
-- Owner can give a space a price
-- Owner can offer a range of dates when the space is available
+- [x] Owner can create a space
+- [x] Owner can list a space
+- [x] Renter can see a list of available spaces
+- [x] Owner can name a space
+- [x] Owner can add a description to a space
+- [x] Owner can give a space a price
+- [x] Owner can offer a range of dates when the space is available
 - Owner can edit an existing space
-- Owner can list more than one space
+- [x] Owner can list more than one space
 - A renter can request to hire a space
 - An owner can accept a request to hire a space
 - Spaces are not booked until the owner accepts the booking

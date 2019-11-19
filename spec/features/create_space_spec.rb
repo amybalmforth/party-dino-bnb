@@ -5,7 +5,7 @@ feature "creating a space" do
   end
 
   scenario "can click through to list properties page" do
-    visit('/')
+    visit('/spaces')
     click_button('Create new listing')
     expect(page).to have_content('List your property')
   end
@@ -19,6 +19,28 @@ feature "creating a space" do
         expect(page).to have_content('Available from')
         expect(page).to have_content('Available to')
       }
+  end
+
+  scenario "property owner can click submit to list a property" do
+    visit('/create')
+    within('form') {
+      expect(page).to have_button('Submit')
+    }
+  end
+
+  scenario "property owner can fill in information and then view it on the listings page" do
+    visit ('/create')
+    fill_in 'property_name', with: 'Dino mansion'
+    fill_in 'description', with: 'A beautiful party mansion for all your party dinosaur needs'
+    fill_in 'price_per_night', with: '£100'
+    fill_in 'available_from', with: '31/12/2019'
+    fill_in 'available_to', with: '01/02/2020'
+    click_button('Submit')
+    expect(page).to have_content('Dino mansion')
+    expect(page).to have_content('A beautiful party mansion for all your party dinosaur needs')
+    expect(page).to have_content('£100')
+    expect(page).to have_content('31/12/2019')
+    expect(page).to have_content('01/02/2020')
   end
 
 
