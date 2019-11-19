@@ -15,8 +15,12 @@ describe 'Viewing Spaces' do
   end
 
   it 'can find a specific space' do
-    spaces = Spaces.all
     findspace = Spaces.find('name', 'home')
     expect(findspace.name).to eq 'home'
+  end
+
+  it 'can update a specific space' do
+    updated_space = Spaces.testupdate(name: 'bungalow', description: 'urban area', price: '£50', available_from: 'November 18 2019', available_to: 'November 25 2019')
+    expect(updated_space.name).to eq 'bungalow'
   end
 end

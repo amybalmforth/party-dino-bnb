@@ -54,5 +54,10 @@ class Dinosaur_Bnb < Sinatra::Base
     erb :edit
   end
 
+  post '/spaces/update' do
+    Spaces.update(id: session['edit_space'].id, name: params[:name], description: params[:description], price: params[:price], available_from: params[:available_from], available_to: params[:available_to])
+    redirect '/spaces'
+  end
+
   run! if app_file == $0
 end
