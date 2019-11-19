@@ -13,10 +13,19 @@ feature 'sign up' do
     visit('/')
     click_button('Already got an account? Log in!')
     expect(page).to have_content 'Fill in the form to log in...'
-<<<<<<< HEAD
-=======
+  end
 
->>>>>>> df0b2b43acc64c1c2e95876592d3d1747f6cae88
+  scenario 'user is not allowed to login if not on database' do
+    visit('/login')
+    fill_in 'username', with: 'Alan Partridge'
+    fill_in 'password', with: 'aha'
+    click_button('submit')
+    within('form') {
+      expect(page).to have_content('Email')
+    }
+
+    
+
   end
 
 end
