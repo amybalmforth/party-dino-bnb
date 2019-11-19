@@ -1,19 +1,37 @@
-Welcome to Jurassic Park, <%= @user.name %>
+<html>
 
-<h3>Create a new listing</h3>
-<br>
-<form action="/create">
-  <button>Create new listing</button>
-</form>
-<br>
-<h1> A list of all spaces: </h1>
-<ul>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Neucha&display=swap" rel="stylesheet">
+  <link rel="styleSheet" typle="text/css" href="<%= url("/styleSheet.css") %>">
+</head>
+
+<body>
+
+  <h1>Welcome to Jurassic Park, <%= @user.name %></h1>
+
+  <br>
+  <form action="/create">
+    <button class="button">Create new listing</button>
+  </form>
+  <br>
+  <h1> A list of all spaces: </h1>
   <% @spaces.each do |space| %>
-  <li>
-    Name: <%= space.name %>, Description: <%= space.description %>, Price per day: <%= space.price %>, Available from: <%= space.available_from %>, Available to: <%= space.available_to %>
-    <form action="/spaces/edit" method="post">
-      <button type="submit" name="Edit" value="<%= space.id %>">Edit</button>
-    </form>
-  </li>
+  <div>
+    Name: <%= space.name %>
+    <br>
+    Description: <%= space.description %>
+    <br>
+    Price per day: <%= space.price %>
+    <br>
+    Available from: <%= space.available_from %>
+    <br>
+    Available to: <%= space.available_to %>
+  </div>
+  <form action="/spaces/edit" method="post">
+    <button class="button" type="submit" name="Edit" value="<%= space.id %>">Edit</button>
+  </form>
   <% end %>
-</ul>
+
+</body>
+
+</html>
