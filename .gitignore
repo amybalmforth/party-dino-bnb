@@ -1,1 +1,5 @@
+# ignore all json files
 *.json
+
+# ignore all files in the coverage folder
+coverage/
