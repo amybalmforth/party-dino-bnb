@@ -5,7 +5,12 @@ feature "creating a space" do
   end
 
   scenario "can click through to list properties page" do
-    visit('/spaces')
+    visit('/signup')
+    fill_in 'name', with: 'John Smith'
+    fill_in 'username', with: 'JohnSmith'
+    fill_in 'email', with: 'jsmith@gmail.com'
+    fill_in 'password', with: 'backseatfreestyle'
+    click_button('submit')
     click_button('Create new listing')
     expect(page).to have_content('List your property')
   end
