@@ -1,0 +1,9 @@
+<h2>Edit your space</h2>
+
+<form action="/spaces" method="post">
+  <input type="text" name="name" value="<%= @edit_space.name %>">
+  <input type="text" name="description" value="<%= @edit_space.description %>">
+  <input type="text" name="price" value="<%= @edit_space.price %>">
+  <input type="text" name="available_from" value="<%= @edit_space.available_from %>">
+  <input type="text" name="available_to" value="<%= @edit_space.available_to %>">
+</form>

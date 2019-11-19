@@ -7,6 +7,11 @@
 <h1> A list of all spaces: </h1>
 <ul>
   <% @spaces.each do |space| %>
-  <li>Name: <%= space.name %>, Description: <%= space.description %>, Price per day: <%= space.price %>, Available from: <%= space.available_from %>, Available to: <%= space.available_to %></li>
+  <li>
+    Name: <%= space.name %>, Description: <%= space.description %>, Price per day: <%= space.price %>, Available from: <%= space.available_from %>, Available to: <%= space.available_to %>
+    <form action="/spaces/edit" method="post">
+      <button type="submit" name="Edit" value="<%= space.id %>">Edit</button>
+    </form>
+  </li>
   <% end %>
 </ul>
