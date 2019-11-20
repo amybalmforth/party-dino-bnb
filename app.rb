@@ -41,6 +41,10 @@ class Dinosaur_Bnb < Sinatra::Base
   end
 
   post '/login' do
+    user = Users.find('username', params[:username])
+    redirect '/signup' if user == nil
+    redirect '/login' if user.password != params[:password]
+    session['user'] = user
     redirect '/spaces'
   end
 
