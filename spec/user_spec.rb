@@ -9,4 +9,9 @@ describe "User" do
     expect(user1.username).to eq("johnsmith")
     expect(user2.password).to eq("whatever2")
   end
+
+  it "does not allow user to log in if user not on database" do
+    
+  end
+
 end
