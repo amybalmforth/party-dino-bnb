@@ -63,5 +63,23 @@ class Dinosaur_Bnb < Sinatra::Base
     redirect '/spaces'
   end
 
+  post '/spaces/request' do
+    session['requested_space'] = Spaces.find('id', params[:Request])
+    redirect '/spaces/request'
+  end
+
+  get '/spaces/request' do
+    @requested_space = session['requested_space']
+    erb :request
+  end
+
+  post '/spaces/confirm' do
+    redirect '/spaces/confirm'
+  end
+
+  get '/spaces/confirm' do
+    erb :confirm
+  end
+
   run! if app_file == $0
 end
