@@ -1,0 +1,13 @@
+.button {
+  background-color: firebrick;
+  font-size: 16px;
+  color: #010101;
+  border-radius: 10px;
+  margin: 2px
+}
+
+body {
+  background-color: gold;
+  font-family: 'Neucha', cursive;
+  text-align: center;
+}

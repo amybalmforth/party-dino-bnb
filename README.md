@@ -20,10 +20,10 @@
 - [x] Owner can add a description to a space
 - [x] Owner can give a space a price
 - [x] Owner can offer a range of dates when the space is available
-- Owner can edit an existing space
+- [x] Owner can edit an existing space
 - [x] Owner can list more than one space
+- User can sign up
 - A renter can request to hire a space
 - An owner can accept a request to hire a space
 - Spaces are not booked until the owner accepts the booking
 - Booked spaces are no longer available
-- User can sign up
