@@ -21,7 +21,7 @@
     <br>
     Description: <%= space.description %>
     <br>
-    Price per day: <%= space.price %>
+    Price per day: £<%= space.price %>
     <br>
     Available from: <%= space.available_from %>
     <br>
@@ -29,6 +29,9 @@
   </div>
   <form action="/spaces/edit" method="post">
     <button class="button" type="submit" name="Edit" value="<%= space.id %>">Edit</button>
+  </form>
+  <form action="/spaces/request" method="post">
+    <button class="button" type="submit" name="Request" value="<%= space.id %>">Request</button>
   </form>
   <% end %>
 

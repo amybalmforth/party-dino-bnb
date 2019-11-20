@@ -1,0 +1,31 @@
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Neucha&display=swap" rel="stylesheet">
+  <link rel="styleSheet" typle="text/css" href="<%= url("/styleSheet.css") %>">
+</head>
+
+<body>
+
+<h3>Request:</h3>
+
+Name: <%= @requested_space.name %>
+<br>
+Description: <%= @requested_space.description %>
+<br>
+Price per day: £<%= @requested_space.price %>
+<br>
+Available from: <%= @requested_space.available_to %>
+<br>
+Available to: <%= @requested_space.available_from %>
+
+<form action="/spaces/confirm" method="post">
+  <button class="button" type="submit" name="Confirm" value="<%= @requested_space.id %>">Confirm</button>
+</form>
+<form action="/spaces" method="get">
+  <button class="button" type="submit" name="Back">Back</button>
+</form>
+
+</body>
+
+</html>
