@@ -1,0 +1,44 @@
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Neucha&display=swap" rel="stylesheet">
+  <link rel="styleSheet" typle="text/css" href="http://www.example.com/styleSheet.css">
+</head>
+
+<body>
+
+  <form action="/logout" method="post">
+    <button class="button" type="submit">Logout</button>
+  </form>
+
+  <h1>Welcome to Jurassic Park, John Smith</h1>
+
+  <br>
+  <form action="/create">
+    <button class="button">Create new listing</button>
+  </form>
+  <br>
+  <h1> A list of all spaces: </h1>
+  
+  <div>
+    Name: home
+    <br>
+    Description: urban area
+    <br>
+    Price per day: ££50
+    <br>
+    Available from: November 18 2019
+    <br>
+    Available to: November 25 2019
+  </div>
+  <form action="/spaces/edit" method="post">
+    <button class="button" type="submit" name="Edit" value="464">Edit</button>
+  </form>
+  <form action="/spaces/request" method="post">
+    <button class="button" type="submit" name="Request" value="464">Request</button>
+  </form>
+  
+
+</body>
+
+</html>
