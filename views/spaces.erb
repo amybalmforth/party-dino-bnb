@@ -11,7 +11,7 @@
     <button class="button" type="submit">Logout</button>
   </form>
 
-  <h1>Welcome to Jurassic Park, <%= @user.name %></h1>
+  <h1>Welcome to Jurassic Park, <%= @user %></h1>
 
   <br>
   <form action="/create">
@@ -31,7 +31,7 @@
     <br>
     Available to: <%= space.available_to %>
     <br>
-    Listed by: <%= @user.username %>
+    Listed by: <%= @user %>
   </div>
   <form action="/spaces/edit" method="post">
     <button class="button" type="submit" name="Edit" value="<%= space.id %>">Edit</button>

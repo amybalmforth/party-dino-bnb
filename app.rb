@@ -19,12 +19,12 @@ class Dinosaur_Bnb < Sinatra::Base
   end
 
   post '/new-space' do
-    Space.create(name: params[:property_name], description: params[:description], price: params[:price_per_night], available_from: params[:available_from], available_to: params[:available_to], created_by: session["user"].id)
+    Space.create(name: params[:property_name], description: params[:description], price: params[:price_per_night], available_from: params[:available_from], available_to: params[:available_to], created_by: session['userID'])
     redirect '/spaces'
   end
 
   get '/spaces' do
-    @user = session['user']
+    @user = session['userUSERNAME']
     @spaces = Space.all.reverse
     erb :spaces
   end
@@ -34,7 +34,8 @@ class Dinosaur_Bnb < Sinatra::Base
   end
 
   post '/signup' do
-    session['user'] = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+    user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+    session['userID'] = user.id
     redirect '/spaces'
   end
 
@@ -46,7 +47,7 @@ class Dinosaur_Bnb < Sinatra::Base
     user = User.first(:username => params[:username])
     redirect '/signup' if user == nil
     redirect '/login' if user.password != params[:password]
-    session['user'] = user
+    session['userID'] = user.id
     redirect '/spaces'
   end
 

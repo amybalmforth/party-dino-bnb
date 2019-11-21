@@ -128,7 +128,7 @@
         <ul>
           <li class="first"><strong>file:</strong> <code>
             spaces.erb</code></li>
-          <li><strong>location:</strong> <code>__tilt_70177580597340
+          <li><strong>location:</strong> <code>__tilt_70215778115660
             </code></li>
           <li class="last"><strong>line:
             </strong> 14</li>
@@ -159,7 +159,7 @@
 
             <li class="frame-info app">
               <code>&#x2F;Users&#x2F;student&#x2F;Projects&#x2F;Party-Dinosaurs-BnB&#x2F;views&#x2F;spaces.erb</code> in
-                <code><strong>__tilt_70177580597340</strong></code>
+                <code><strong>__tilt_70215778115660</strong></code>
             </li>
 
             <li class="code app">
@@ -639,7 +639,7 @@
                 <li class="pre-context-line"><code>  get &#x27;&#x2F;spaces&#x27; do
 </code></li>
                 
-                <li class="pre-context-line"><code>    @user = session[&#x27;user&#x27;]
+                <li class="pre-context-line"><code>    @user = session[&#x27;userUSERNAME&#x27;]
 </code></li>
                 
                 <li class="pre-context-line"><code>    @spaces = Space.all.reverse
@@ -4184,67 +4184,67 @@
 
             <li class="frame-info system">
               <code>&#x2F;Users&#x2F;student&#x2F;.rvm&#x2F;gems&#x2F;ruby-2.6.3&#x2F;gems&#x2F;capybara-3.29.0&#x2F;lib&#x2F;capybara&#x2F;rack_test&#x2F;browser.rb</code> in
-                <code><strong>process_and_follow_redirects</strong></code>
+                <code><strong>block in process_and_follow_redirects</strong></code>
             </li>
 
             <li class="code system">
               
-              <ol start="36"
+              <ol start="45"
                   class="pre-context" id="pre-54"
                   onclick="toggle(54);">
                 
-                <li class="pre-context-line"><code>  def follow(method, path, **attributes)
-</code></li>
-                
-                <li class="pre-context-line"><code>    return if fragment_or_script?(path)
+                <li class="pre-context-line"><code>    return unless driver.follow_redirects?
 </code></li>
                 
                 <li class="pre-context-line"><code>
 </code></li>
                 
-                <li class="pre-context-line"><code>    process_and_follow_redirects(method, path, attributes, &#x27;HTTP_REFERER&#x27; =&gt; current_url)
+                <li class="pre-context-line"><code>    driver.redirect_limit.times do
 </code></li>
                 
-                <li class="pre-context-line"><code>  end
+                <li class="pre-context-line"><code>      if last_response.redirect?
 </code></li>
                 
-                <li class="pre-context-line"><code>
+                <li class="pre-context-line"><code>        if [307, 308].include? last_response.status
 </code></li>
                 
-                <li class="pre-context-line"><code>  def process_and_follow_redirects(method, path, attributes = {}, env = {})
+                <li class="pre-context-line"><code>          process(last_request.request_method, last_response[&#x27;Location&#x27;], last_request.params, env)
+</code></li>
+                
+                <li class="pre-context-line"><code>        else
 </code></li>
                 
               </ol>
               
 
-              <ol start="43" class="context" id="54"
+              <ol start="52" class="context" id="54"
                   onclick="toggle(54);">
-                <li class="context-line" id="context-54"><code>    process(method, path, attributes, env)</code></li>
+                <li class="context-line" id="context-54"><code>          process(:get, last_response[&#x27;Location&#x27;], {}, env)</code></li>
               </ol>
 
               
-              <ol start="44" class="post-context"
+              <ol start="53" class="post-context"
                   id="post-54" onclick="toggle(54);">
                 
+                <li class="post-context-line"><code>        end
+</code></li>
+                
+                <li class="post-context-line"><code>      end
+</code></li>
+                
+                <li class="post-context-line"><code>    end
+</code></li>
+                
+                <li class="post-context-line"><code>    raise Capybara::InfiniteRedirectError, &quot;redirected more than #{driver.redirect_limit} times, check for infinite redirects.&quot; if last_response.redirect?
+</code></li>
+                
+                <li class="post-context-line"><code>  end
+</code></li>
+                
                 <li class="post-context-line"><code>
 </code></li>
                 
-                <li class="post-context-line"><code>    return unless driver.follow_redirects?
-</code></li>
-                
-                <li class="post-context-line"><code>
-</code></li>
-                
-                <li class="post-context-line"><code>    driver.redirect_limit.times do
-</code></li>
-                
-                <li class="post-context-line"><code>      if last_response.redirect?
-</code></li>
-                
-                <li class="post-context-line"><code>        if [307, 308].include? last_response.status
-</code></li>
-                
-                <li class="post-context-line"><code>          process(last_request.request_method, last_response[&#x27;Location&#x27;], last_request.params, env)
+                <li class="post-context-line"><code>  def process(method, path, attributes = {}, env = {})
 </code></li>
                 
               </ol>
@@ -4260,22 +4260,174 @@
 
             <li class="frame-info system">
               <code>&#x2F;Users&#x2F;student&#x2F;.rvm&#x2F;gems&#x2F;ruby-2.6.3&#x2F;gems&#x2F;capybara-3.29.0&#x2F;lib&#x2F;capybara&#x2F;rack_test&#x2F;browser.rb</code> in
-                <code><strong>visit</strong></code>
+                <code><strong>times</strong></code>
             </li>
 
             <li class="code system">
               
-              <ol start="16"
+              <ol start="40"
                   class="pre-context" id="pre-55"
                   onclick="toggle(55);">
+                
+                <li class="pre-context-line"><code>  end
+</code></li>
                 
                 <li class="pre-context-line"><code>
 </code></li>
                 
-                <li class="pre-context-line"><code>  def options
+                <li class="pre-context-line"><code>  def process_and_follow_redirects(method, path, attributes = {}, env = {})
 </code></li>
                 
-                <li class="pre-context-line"><code>    driver.options
+                <li class="pre-context-line"><code>    process(method, path, attributes, env)
+</code></li>
+                
+                <li class="pre-context-line"><code>
+</code></li>
+                
+                <li class="pre-context-line"><code>    return unless driver.follow_redirects?
+</code></li>
+                
+                <li class="pre-context-line"><code>
+</code></li>
+                
+              </ol>
+              
+
+              <ol start="47" class="context" id="55"
+                  onclick="toggle(55);">
+                <li class="context-line" id="context-55"><code>    driver.redirect_limit.times do</code></li>
+              </ol>
+
+              
+              <ol start="48" class="post-context"
+                  id="post-55" onclick="toggle(55);">
+                
+                <li class="post-context-line"><code>      if last_response.redirect?
+</code></li>
+                
+                <li class="post-context-line"><code>        if [307, 308].include? last_response.status
+</code></li>
+                
+                <li class="post-context-line"><code>          process(last_request.request_method, last_response[&#x27;Location&#x27;], last_request.params, env)
+</code></li>
+                
+                <li class="post-context-line"><code>        else
+</code></li>
+                
+                <li class="post-context-line"><code>          process(:get, last_response[&#x27;Location&#x27;], {}, env)
+</code></li>
+                
+                <li class="post-context-line"><code>        end
+</code></li>
+                
+                <li class="post-context-line"><code>      end
+</code></li>
+                
+              </ol>
+              
+              <div class="clear"></div>
+            </li>
+
+          
+
+        
+      
+          
+
+            <li class="frame-info system">
+              <code>&#x2F;Users&#x2F;student&#x2F;.rvm&#x2F;gems&#x2F;ruby-2.6.3&#x2F;gems&#x2F;capybara-3.29.0&#x2F;lib&#x2F;capybara&#x2F;rack_test&#x2F;browser.rb</code> in
+                <code><strong>process_and_follow_redirects</strong></code>
+            </li>
+
+            <li class="code system">
+              
+              <ol start="40"
+                  class="pre-context" id="pre-56"
+                  onclick="toggle(56);">
+                
+                <li class="pre-context-line"><code>  end
+</code></li>
+                
+                <li class="pre-context-line"><code>
+</code></li>
+                
+                <li class="pre-context-line"><code>  def process_and_follow_redirects(method, path, attributes = {}, env = {})
+</code></li>
+                
+                <li class="pre-context-line"><code>    process(method, path, attributes, env)
+</code></li>
+                
+                <li class="pre-context-line"><code>
+</code></li>
+                
+                <li class="pre-context-line"><code>    return unless driver.follow_redirects?
+</code></li>
+                
+                <li class="pre-context-line"><code>
+</code></li>
+                
+              </ol>
+              
+
+              <ol start="47" class="context" id="56"
+                  onclick="toggle(56);">
+                <li class="context-line" id="context-56"><code>    driver.redirect_limit.times do</code></li>
+              </ol>
+
+              
+              <ol start="48" class="post-context"
+                  id="post-56" onclick="toggle(56);">
+                
+                <li class="post-context-line"><code>      if last_response.redirect?
+</code></li>
+                
+                <li class="post-context-line"><code>        if [307, 308].include? last_response.status
+</code></li>
+                
+                <li class="post-context-line"><code>          process(last_request.request_method, last_response[&#x27;Location&#x27;], last_request.params, env)
+</code></li>
+                
+                <li class="post-context-line"><code>        else
+</code></li>
+                
+                <li class="post-context-line"><code>          process(:get, last_response[&#x27;Location&#x27;], {}, env)
+</code></li>
+                
+                <li class="post-context-line"><code>        end
+</code></li>
+                
+                <li class="post-context-line"><code>      end
+</code></li>
+                
+              </ol>
+              
+              <div class="clear"></div>
+            </li>
+
+          
+
+        
+      
+          
+
+            <li class="frame-info system">
+              <code>&#x2F;Users&#x2F;student&#x2F;.rvm&#x2F;gems&#x2F;ruby-2.6.3&#x2F;gems&#x2F;capybara-3.29.0&#x2F;lib&#x2F;capybara&#x2F;rack_test&#x2F;browser.rb</code> in
+                <code><strong>submit</strong></code>
+            </li>
+
+            <li class="code system">
+              
+              <ol start="26"
+                  class="pre-context" id="pre-57"
+                  onclick="toggle(57);">
+                
+                <li class="pre-context-line"><code>  def refresh
+</code></li>
+                
+                <li class="pre-context-line"><code>    reset_cache!
+</code></li>
+                
+                <li class="pre-context-line"><code>    request(last_request.fullpath, last_request.env)
 </code></li>
                 
                 <li class="pre-context-line"><code>  end
@@ -4284,23 +4436,23 @@
                 <li class="pre-context-line"><code>
 </code></li>
                 
-                <li class="pre-context-line"><code>  def visit(path, **attributes)
+                <li class="pre-context-line"><code>  def submit(method, path, attributes)
 </code></li>
                 
-                <li class="pre-context-line"><code>    reset_host!
+                <li class="pre-context-line"><code>    path = request_path if path.nil? || path.empty?
 </code></li>
                 
               </ol>
               
 
-              <ol start="23" class="context" id="55"
-                  onclick="toggle(55);">
-                <li class="context-line" id="context-55"><code>    process_and_follow_redirects(:get, path, attributes)</code></li>
+              <ol start="33" class="context" id="57"
+                  onclick="toggle(57);">
+                <li class="context-line" id="context-57"><code>    process_and_follow_redirects(method, path, attributes, &#x27;HTTP_REFERER&#x27; =&gt; current_url)</code></li>
               </ol>
 
               
-              <ol start="24" class="post-context"
-                  id="post-55" onclick="toggle(55);">
+              <ol start="34" class="post-context"
+                  id="post-57" onclick="toggle(57);">
                 
                 <li class="post-context-line"><code>  end
 </code></li>
@@ -4308,13 +4460,241 @@
                 <li class="post-context-line"><code>
 </code></li>
                 
-                <li class="post-context-line"><code>  def refresh
+                <li class="post-context-line"><code>  def follow(method, path, **attributes)
 </code></li>
                 
-                <li class="post-context-line"><code>    reset_cache!
+                <li class="post-context-line"><code>    return if fragment_or_script?(path)
 </code></li>
                 
-                <li class="post-context-line"><code>    request(last_request.fullpath, last_request.env)
+                <li class="post-context-line"><code>
+</code></li>
+                
+                <li class="post-context-line"><code>    process_and_follow_redirects(method, path, attributes, &#x27;HTTP_REFERER&#x27; =&gt; current_url)
+</code></li>
+                
+                <li class="post-context-line"><code>  end
+</code></li>
+                
+              </ol>
+              
+              <div class="clear"></div>
+            </li>
+
+          
+
+        
+      
+          
+
+            <li class="frame-info system">
+              <code>&#x2F;Users&#x2F;student&#x2F;.rvm&#x2F;gems&#x2F;ruby-2.6.3&#x2F;gems&#x2F;capybara-3.29.0&#x2F;lib&#x2F;capybara&#x2F;rack_test&#x2F;form.rb</code> in
+                <code><strong>submit</strong></code>
+            </li>
+
+            <li class="code system">
+              
+              <ol start="36"
+                  class="pre-context" id="pre-58"
+                  onclick="toggle(58);">
+                
+                <li class="pre-context-line"><code>      end
+</code></li>
+                
+                <li class="pre-context-line"><code>    end.to_params_hash
+</code></li>
+                
+                <li class="pre-context-line"><code>  end
+</code></li>
+                
+                <li class="pre-context-line"><code>
+</code></li>
+                
+                <li class="pre-context-line"><code>  def submit(button)
+</code></li>
+                
+                <li class="pre-context-line"><code>    action = button&amp;.[](&#x27;formaction&#x27;) || native[&#x27;action&#x27;]
+</code></li>
+                
+                <li class="pre-context-line"><code>    method = button&amp;.[](&#x27;formmethod&#x27;) || request_method
+</code></li>
+                
+              </ol>
+              
+
+              <ol start="43" class="context" id="58"
+                  onclick="toggle(58);">
+                <li class="context-line" id="context-58"><code>    driver.submit(method, action.to_s, params(button))</code></li>
+              </ol>
+
+              
+              <ol start="44" class="post-context"
+                  id="post-58" onclick="toggle(58);">
+                
+                <li class="post-context-line"><code>  end
+</code></li>
+                
+                <li class="post-context-line"><code>
+</code></li>
+                
+                <li class="post-context-line"><code>  def multipart?
+</code></li>
+                
+                <li class="post-context-line"><code>    self[:enctype] == &#x27;multipart&#x2F;form-data&#x27;
+</code></li>
+                
+                <li class="post-context-line"><code>  end
+</code></li>
+                
+                <li class="post-context-line"><code>
+</code></li>
+                
+                <li class="post-context-line"><code>private
+</code></li>
+                
+              </ol>
+              
+              <div class="clear"></div>
+            </li>
+
+          
+
+        
+      
+          
+
+            <li class="frame-info system">
+              <code>&#x2F;Users&#x2F;student&#x2F;.rvm&#x2F;gems&#x2F;ruby-2.6.3&#x2F;gems&#x2F;capybara-3.29.0&#x2F;lib&#x2F;capybara&#x2F;rack_test&#x2F;node.rb</code> in
+                <code><strong>click</strong></code>
+            </li>
+
+            <li class="code system">
+              
+              <ol start="67"
+                  class="pre-context" id="pre-59"
+                  onclick="toggle(59);">
+                
+                <li class="pre-context-line"><code>    options.delete(:offset)
+</code></li>
+                
+                <li class="pre-context-line"><code>    raise ArgumentError, &#x27;The RackTest driver does not support click options&#x27; unless keys.empty? &amp;&amp; options.empty?
+</code></li>
+                
+                <li class="pre-context-line"><code>
+</code></li>
+                
+                <li class="pre-context-line"><code>    if link?
+</code></li>
+                
+                <li class="pre-context-line"><code>      follow_link
+</code></li>
+                
+                <li class="pre-context-line"><code>    elsif submits?
+</code></li>
+                
+                <li class="pre-context-line"><code>      associated_form = form
+</code></li>
+                
+              </ol>
+              
+
+              <ol start="74" class="context" id="59"
+                  onclick="toggle(59);">
+                <li class="context-line" id="context-59"><code>      Capybara::RackTest::Form.new(driver, associated_form).submit(self) if associated_form</code></li>
+              </ol>
+
+              
+              <ol start="75" class="post-context"
+                  id="post-59" onclick="toggle(59);">
+                
+                <li class="post-context-line"><code>    elsif checkable?
+</code></li>
+                
+                <li class="post-context-line"><code>      set(!checked?)
+</code></li>
+                
+                <li class="post-context-line"><code>    elsif tag_name == &#x27;label&#x27;
+</code></li>
+                
+                <li class="post-context-line"><code>      click_label
+</code></li>
+                
+                <li class="post-context-line"><code>    elsif tag_name == &#x27;details&#x27;
+</code></li>
+                
+                <li class="post-context-line"><code>      toggle_details
+</code></li>
+                
+                <li class="post-context-line"><code>    end
+</code></li>
+                
+              </ol>
+              
+              <div class="clear"></div>
+            </li>
+
+          
+
+        
+      
+          
+
+            <li class="frame-info system">
+              <code>&#x2F;Users&#x2F;student&#x2F;.rvm&#x2F;gems&#x2F;ruby-2.6.3&#x2F;gems&#x2F;capybara-3.29.0&#x2F;lib&#x2F;capybara&#x2F;rack_test&#x2F;node.rb</code> in
+                <code><strong>block (2 levels) in &lt;class:Node&gt;</strong></code>
+            </li>
+
+            <li class="code system">
+              
+              <ol start="121"
+                  class="pre-context" id="pre-60"
+                  onclick="toggle(60);">
+                
+                <li class="pre-context-line"><code>
+</code></li>
+                
+                <li class="pre-context-line"><code>  public_instance_methods(false).each do |meth_name|
+</code></li>
+                
+                <li class="pre-context-line"><code>    alias_method &quot;unchecked_#{meth_name}&quot;, meth_name
+</code></li>
+                
+                <li class="pre-context-line"><code>    private &quot;unchecked_#{meth_name}&quot; # rubocop:disable Style&#x2F;AccessModifierDeclarations
+</code></li>
+                
+                <li class="pre-context-line"><code>
+</code></li>
+                
+                <li class="pre-context-line"><code>    define_method meth_name do |*args|
+</code></li>
+                
+                <li class="pre-context-line"><code>      stale_check
+</code></li>
+                
+              </ol>
+              
+
+              <ol start="128" class="context" id="60"
+                  onclick="toggle(60);">
+                <li class="context-line" id="context-60"><code>      send(&quot;unchecked_#{meth_name}&quot;, *args)</code></li>
+              </ol>
+
+              
+              <ol start="129" class="post-context"
+                  id="post-60" onclick="toggle(60);">
+                
+                <li class="post-context-line"><code>    end
+</code></li>
+                
+                <li class="post-context-line"><code>  end
+</code></li>
+                
+                <li class="post-context-line"><code>
+</code></li>
+                
+                <li class="post-context-line"><code>  def ==(other)
+</code></li>
+                
+                <li class="post-context-line"><code>    native == other.native
 </code></li>
                 
                 <li class="post-context-line"><code>  end
@@ -4335,68 +4715,436 @@
           
 
             <li class="frame-info system">
-              <code>&#x2F;Users&#x2F;student&#x2F;.rvm&#x2F;gems&#x2F;ruby-2.6.3&#x2F;gems&#x2F;capybara-3.29.0&#x2F;lib&#x2F;capybara&#x2F;rack_test&#x2F;driver.rb</code> in
-                <code><strong>visit</strong></code>
+              <code>&#x2F;Users&#x2F;student&#x2F;.rvm&#x2F;gems&#x2F;ruby-2.6.3&#x2F;gems&#x2F;capybara-3.29.0&#x2F;lib&#x2F;capybara&#x2F;node&#x2F;element.rb</code> in
+                <code><strong>block in click</strong></code>
             </li>
 
             <li class="code system">
               
-              <ol start="38"
-                  class="pre-context" id="pre-56"
-                  onclick="toggle(56);">
+              <ol start="160"
+                  class="pre-context" id="pre-61"
+                  onclick="toggle(61);">
                 
-                <li class="pre-context-line"><code>  end
+                <li class="pre-context-line"><code>      #     @option options [Integer] x  X coordinate to offset the click location. If {Capybara.configure w3c_click_offset} is `true` the
 </code></li>
                 
-                <li class="pre-context-line"><code>
+                <li class="pre-context-line"><code>      #       offset will be from the element center, otherwise it will be from the top left corner of the element
 </code></li>
                 
-                <li class="pre-context-line"><code>  def request
+                <li class="pre-context-line"><code>      #     @option options [Integer] y  Y coordinate to offset the click location. If {Capybara.configure w3c_click_offset} is `true` the
 </code></li>
                 
-                <li class="pre-context-line"><code>    browser.last_request
+                <li class="pre-context-line"><code>      #       offset will be from the element center, otherwise it will be from the top left corner of the element
 </code></li>
                 
-                <li class="pre-context-line"><code>  end
+                <li class="pre-context-line"><code>      # @return [Capybara::Node::Element]  The element
 </code></li>
                 
-                <li class="pre-context-line"><code>
+                <li class="pre-context-line"><code>      def click(*keys, **options)
 </code></li>
                 
-                <li class="pre-context-line"><code>  def visit(path, **attributes)
+                <li class="pre-context-line"><code>        perform_click_action(keys, options) do |k, opts|
 </code></li>
                 
               </ol>
               
 
-              <ol start="45" class="context" id="56"
-                  onclick="toggle(56);">
-                <li class="context-line" id="context-56"><code>    browser.visit(path, attributes)</code></li>
+              <ol start="167" class="context" id="61"
+                  onclick="toggle(61);">
+                <li class="context-line" id="context-61"><code>          base.click(k, opts)</code></li>
               </ol>
 
               
-              <ol start="46" class="post-context"
-                  id="post-56" onclick="toggle(56);">
+              <ol start="168" class="post-context"
+                  id="post-61" onclick="toggle(61);">
                 
-                <li class="post-context-line"><code>  end
+                <li class="post-context-line"><code>        end
+</code></li>
+                
+                <li class="post-context-line"><code>      end
 </code></li>
                 
                 <li class="post-context-line"><code>
 </code></li>
                 
-                <li class="post-context-line"><code>  def refresh
+                <li class="post-context-line"><code>      ##
 </code></li>
                 
-                <li class="post-context-line"><code>    browser.refresh
+                <li class="post-context-line"><code>      #
+</code></li>
+                
+                <li class="post-context-line"><code>      # Right Click the Element.
+</code></li>
+                
+                <li class="post-context-line"><code>      #
+</code></li>
+                
+              </ol>
+              
+              <div class="clear"></div>
+            </li>
+
+          
+
+        
+      
+          
+
+            <li class="frame-info system">
+              <code>&#x2F;Users&#x2F;student&#x2F;.rvm&#x2F;gems&#x2F;ruby-2.6.3&#x2F;gems&#x2F;capybara-3.29.0&#x2F;lib&#x2F;capybara&#x2F;node&#x2F;element.rb</code> in
+                <code><strong>block in perform_click_action</strong></code>
+            </li>
+
+            <li class="code system">
+              
+              <ol start="587"
+                  class="pre-context" id="pre-62"
+                  onclick="toggle(62);">
+                
+                <li class="pre-context-line"><code>
+</code></li>
+                
+                <li class="pre-context-line"><code>    private
+</code></li>
+                
+                <li class="pre-context-line"><code>
+</code></li>
+                
+                <li class="pre-context-line"><code>      def perform_click_action(keys, wait: nil, **options)
+</code></li>
+                
+                <li class="pre-context-line"><code>        raise ArgumentError, &#x27;You must specify both x: and y: for a click offset&#x27; if nil ^ options[:x] ^ options[:y]
+</code></li>
+                
+                <li class="pre-context-line"><code>
+</code></li>
+                
+                <li class="pre-context-line"><code>        options[:offset] ||= :center if session_options.w3c_click_offset
+</code></li>
+                
+              </ol>
+              
+
+              <ol start="594" class="context" id="62"
+                  onclick="toggle(62);">
+                <li class="context-line" id="context-62"><code>        synchronize(wait) { yield keys, options }</code></li>
+              </ol>
+
+              
+              <ol start="595" class="post-context"
+                  id="post-62" onclick="toggle(62);">
+                
+                <li class="post-context-line"><code>        self
+</code></li>
+                
+                <li class="post-context-line"><code>      end
+</code></li>
+                
+                <li class="post-context-line"><code>    end
 </code></li>
                 
                 <li class="post-context-line"><code>  end
 </code></li>
                 
+                <li class="post-context-line"><code>end
+</code></li>
+                
+              </ol>
+              
+              <div class="clear"></div>
+            </li>
+
+          
+
+        
+      
+          
+
+            <li class="frame-info system">
+              <code>&#x2F;Users&#x2F;student&#x2F;.rvm&#x2F;gems&#x2F;ruby-2.6.3&#x2F;gems&#x2F;capybara-3.29.0&#x2F;lib&#x2F;capybara&#x2F;node&#x2F;base.rb</code> in
+                <code><strong>synchronize</strong></code>
+            </li>
+
+            <li class="code system">
+              
+              <ol start="76"
+                  class="pre-context" id="pre-63"
+                  onclick="toggle(63);">
+                
+                <li class="pre-context-line"><code>      def synchronize(seconds = nil, errors: nil)
+</code></li>
+                
+                <li class="pre-context-line"><code>        return yield if session.synchronized
+</code></li>
+                
+                <li class="pre-context-line"><code>
+</code></li>
+                
+                <li class="pre-context-line"><code>        seconds = session_options.default_max_wait_time if [nil, true].include? seconds
+</code></li>
+                
+                <li class="pre-context-line"><code>        session.synchronized = true
+</code></li>
+                
+                <li class="pre-context-line"><code>        timer = Capybara::Helpers.timer(expire_in: seconds)
+</code></li>
+                
+                <li class="pre-context-line"><code>        begin
+</code></li>
+                
+              </ol>
+              
+
+              <ol start="83" class="context" id="63"
+                  onclick="toggle(63);">
+                <li class="context-line" id="context-63"><code>          yield</code></li>
+              </ol>
+
+              
+              <ol start="84" class="post-context"
+                  id="post-63" onclick="toggle(63);">
+                
+                <li class="post-context-line"><code>        rescue StandardError =&gt; e
+</code></li>
+                
+                <li class="post-context-line"><code>          session.raise_server_error!
+</code></li>
+                
+                <li class="post-context-line"><code>          raise e unless catch_error?(e, errors)
+</code></li>
+                
                 <li class="post-context-line"><code>
 </code></li>
                 
-                <li class="post-context-line"><code>  def submit(method, path, attributes)
+                <li class="post-context-line"><code>          if driver.wait?
+</code></li>
+                
+                <li class="post-context-line"><code>            raise e if timer.expired?
+</code></li>
+                
+                <li class="post-context-line"><code>
+</code></li>
+                
+              </ol>
+              
+              <div class="clear"></div>
+            </li>
+
+          
+
+        
+      
+          
+
+            <li class="frame-info system">
+              <code>&#x2F;Users&#x2F;student&#x2F;.rvm&#x2F;gems&#x2F;ruby-2.6.3&#x2F;gems&#x2F;capybara-3.29.0&#x2F;lib&#x2F;capybara&#x2F;node&#x2F;element.rb</code> in
+                <code><strong>perform_click_action</strong></code>
+            </li>
+
+            <li class="code system">
+              
+              <ol start="587"
+                  class="pre-context" id="pre-64"
+                  onclick="toggle(64);">
+                
+                <li class="pre-context-line"><code>
+</code></li>
+                
+                <li class="pre-context-line"><code>    private
+</code></li>
+                
+                <li class="pre-context-line"><code>
+</code></li>
+                
+                <li class="pre-context-line"><code>      def perform_click_action(keys, wait: nil, **options)
+</code></li>
+                
+                <li class="pre-context-line"><code>        raise ArgumentError, &#x27;You must specify both x: and y: for a click offset&#x27; if nil ^ options[:x] ^ options[:y]
+</code></li>
+                
+                <li class="pre-context-line"><code>
+</code></li>
+                
+                <li class="pre-context-line"><code>        options[:offset] ||= :center if session_options.w3c_click_offset
+</code></li>
+                
+              </ol>
+              
+
+              <ol start="594" class="context" id="64"
+                  onclick="toggle(64);">
+                <li class="context-line" id="context-64"><code>        synchronize(wait) { yield keys, options }</code></li>
+              </ol>
+
+              
+              <ol start="595" class="post-context"
+                  id="post-64" onclick="toggle(64);">
+                
+                <li class="post-context-line"><code>        self
+</code></li>
+                
+                <li class="post-context-line"><code>      end
+</code></li>
+                
+                <li class="post-context-line"><code>    end
+</code></li>
+                
+                <li class="post-context-line"><code>  end
+</code></li>
+                
+                <li class="post-context-line"><code>end
+</code></li>
+                
+              </ol>
+              
+              <div class="clear"></div>
+            </li>
+
+          
+
+        
+      
+          
+
+            <li class="frame-info system">
+              <code>&#x2F;Users&#x2F;student&#x2F;.rvm&#x2F;gems&#x2F;ruby-2.6.3&#x2F;gems&#x2F;capybara-3.29.0&#x2F;lib&#x2F;capybara&#x2F;node&#x2F;element.rb</code> in
+                <code><strong>click</strong></code>
+            </li>
+
+            <li class="code system">
+              
+              <ol start="159"
+                  class="pre-context" id="pre-65"
+                  onclick="toggle(65);">
+                
+                <li class="pre-context-line"><code>      #     @param *modifier_keys [:alt, :control, :meta, :shift] ([]) Keys to be held down when clicking
+</code></li>
+                
+                <li class="pre-context-line"><code>      #     @option options [Integer] x  X coordinate to offset the click location. If {Capybara.configure w3c_click_offset} is `true` the
+</code></li>
+                
+                <li class="pre-context-line"><code>      #       offset will be from the element center, otherwise it will be from the top left corner of the element
+</code></li>
+                
+                <li class="pre-context-line"><code>      #     @option options [Integer] y  Y coordinate to offset the click location. If {Capybara.configure w3c_click_offset} is `true` the
+</code></li>
+                
+                <li class="pre-context-line"><code>      #       offset will be from the element center, otherwise it will be from the top left corner of the element
+</code></li>
+                
+                <li class="pre-context-line"><code>      # @return [Capybara::Node::Element]  The element
+</code></li>
+                
+                <li class="pre-context-line"><code>      def click(*keys, **options)
+</code></li>
+                
+              </ol>
+              
+
+              <ol start="166" class="context" id="65"
+                  onclick="toggle(65);">
+                <li class="context-line" id="context-65"><code>        perform_click_action(keys, options) do |k, opts|</code></li>
+              </ol>
+
+              
+              <ol start="167" class="post-context"
+                  id="post-65" onclick="toggle(65);">
+                
+                <li class="post-context-line"><code>          base.click(k, opts)
+</code></li>
+                
+                <li class="post-context-line"><code>        end
+</code></li>
+                
+                <li class="post-context-line"><code>      end
+</code></li>
+                
+                <li class="post-context-line"><code>
+</code></li>
+                
+                <li class="post-context-line"><code>      ##
+</code></li>
+                
+                <li class="post-context-line"><code>      #
+</code></li>
+                
+                <li class="post-context-line"><code>      # Right Click the Element.
+</code></li>
+                
+              </ol>
+              
+              <div class="clear"></div>
+            </li>
+
+          
+
+        
+      
+          
+
+            <li class="frame-info system">
+              <code>&#x2F;Users&#x2F;student&#x2F;.rvm&#x2F;gems&#x2F;ruby-2.6.3&#x2F;gems&#x2F;capybara-3.29.0&#x2F;lib&#x2F;capybara&#x2F;node&#x2F;actions.rb</code> in
+                <code><strong>click_button</strong></code>
+            </li>
+
+            <li class="code system">
+              
+              <ol start="51"
+                  class="pre-context" id="pre-66"
+                  onclick="toggle(66);">
+                
+                <li class="pre-context-line"><code>      #
+</code></li>
+                
+                <li class="pre-context-line"><code>      # @overload click_button([locator], **options)
+</code></li>
+                
+                <li class="pre-context-line"><code>      #   @macro waiting_behavior
+</code></li>
+                
+                <li class="pre-context-line"><code>      #   @param [String] locator      Which button to find
+</code></li>
+                
+                <li class="pre-context-line"><code>      #   @param [Hash] options        See {Capybara::Node::Finders#find_button}
+</code></li>
+                
+                <li class="pre-context-line"><code>      # @return [Capybara::Node::Element]  The element clicked
+</code></li>
+                
+                <li class="pre-context-line"><code>      def click_button(locator = nil, **options)
+</code></li>
+                
+              </ol>
+              
+
+              <ol start="58" class="context" id="66"
+                  onclick="toggle(66);">
+                <li class="context-line" id="context-66"><code>        find(:button, locator, options).click</code></li>
+              </ol>
+
+              
+              <ol start="59" class="post-context"
+                  id="post-66" onclick="toggle(66);">
+                
+                <li class="post-context-line"><code>      end
+</code></li>
+                
+                <li class="post-context-line"><code>
+</code></li>
+                
+                <li class="post-context-line"><code>      ##
+</code></li>
+                
+                <li class="post-context-line"><code>      #
+</code></li>
+                
+                <li class="post-context-line"><code>      # Locate a text field or text area and fill it in with the given text.
+</code></li>
+                
+                <li class="post-context-line"><code>      # The field can be found via its name, id, {Capybara.configure test_id} attribute, placeholder, or label text.
+</code></li>
+                
+                <li class="post-context-line"><code>      # If no locator is provided this will operate on self or a descendant.
 </code></li>
                 
               </ol>
@@ -4412,47 +5160,50 @@
 
             <li class="frame-info system">
               <code>&#x2F;Users&#x2F;student&#x2F;.rvm&#x2F;gems&#x2F;ruby-2.6.3&#x2F;gems&#x2F;capybara-3.29.0&#x2F;lib&#x2F;capybara&#x2F;session.rb</code> in
-                <code><strong>visit</strong></code>
+                <code><strong>block (2 levels) in &lt;class:Session&gt;</strong></code>
             </li>
 
             <li class="code system">
               
-              <ol start="269"
-                  class="pre-context" id="pre-57"
-                  onclick="toggle(57);">
+              <ol start="742"
+                  class="pre-context" id="pre-67"
+                  onclick="toggle(67);">
                 
-                <li class="pre-context-line"><code>          visit_uri_parts[:path] = base_uri.path + visit_uri.path
+                <li class="pre-context-line"><code>    def document
+</code></li>
+                
+                <li class="pre-context-line"><code>      @document ||= Capybara::Node::Document.new(self, driver)
+</code></li>
+                
+                <li class="pre-context-line"><code>    end
 </code></li>
                 
                 <li class="pre-context-line"><code>
 </code></li>
                 
-                <li class="pre-context-line"><code>          visit_uri = base_uri.merge(visit_uri_parts)
+                <li class="pre-context-line"><code>    NODE_METHODS.each do |method|
 </code></li>
                 
-                <li class="pre-context-line"><code>        end
+                <li class="pre-context-line"><code>      define_method method do |*args, &amp;block|
 </code></li>
                 
-                <li class="pre-context-line"><code>        adjust_server_port(visit_uri)
-</code></li>
-                
-                <li class="pre-context-line"><code>      end
-</code></li>
-                
-                <li class="pre-context-line"><code>
+                <li class="pre-context-line"><code>        @touched = true
 </code></li>
                 
               </ol>
               
 
-              <ol start="276" class="context" id="57"
-                  onclick="toggle(57);">
-                <li class="context-line" id="context-57"><code>      driver.visit(visit_uri.to_s)</code></li>
+              <ol start="749" class="context" id="67"
+                  onclick="toggle(67);">
+                <li class="context-line" id="context-67"><code>        current_scope.send(method, *args, &amp;block)</code></li>
               </ol>
 
               
-              <ol start="277" class="post-context"
-                  id="post-57" onclick="toggle(57);">
+              <ol start="750" class="post-context"
+                  id="post-67" onclick="toggle(67);">
+                
+                <li class="post-context-line"><code>      end
+</code></li>
                 
                 <li class="post-context-line"><code>    end
 </code></li>
@@ -4460,19 +5211,16 @@
                 <li class="post-context-line"><code>
 </code></li>
                 
-                <li class="post-context-line"><code>    ##
+                <li class="post-context-line"><code>    DOCUMENT_METHODS.each do |method|
 </code></li>
                 
-                <li class="post-context-line"><code>    #
+                <li class="post-context-line"><code>      define_method method do |*args, &amp;block|
 </code></li>
                 
-                <li class="post-context-line"><code>    # Refresh the page.
+                <li class="post-context-line"><code>        document.send(method, *args, &amp;block)
 </code></li>
                 
-                <li class="post-context-line"><code>    #
-</code></li>
-                
-                <li class="post-context-line"><code>    def refresh
+                <li class="post-context-line"><code>      end
 </code></li>
                 
               </ol>
@@ -4494,8 +5242,8 @@
             <li class="code system">
               
               <ol start="44"
-                  class="pre-context" id="pre-58"
-                  onclick="toggle(58);">
+                  class="pre-context" id="pre-68"
+                  onclick="toggle(68);">
                 
                 <li class="pre-context-line"><code>    #
 </code></li>
@@ -4521,14 +5269,14 @@
               </ol>
               
 
-              <ol start="51" class="context" id="58"
-                  onclick="toggle(58);">
-                <li class="context-line" id="context-58"><code>        page.send method, *args, &amp;block</code></li>
+              <ol start="51" class="context" id="68"
+                  onclick="toggle(68);">
+                <li class="context-line" id="context-68"><code>        page.send method, *args, &amp;block</code></li>
               </ol>
 
               
               <ol start="52" class="post-context"
-                  id="post-58" onclick="toggle(58);">
+                  id="post-68" onclick="toggle(68);">
                 
                 <li class="post-context-line"><code>      end
 </code></li>
@@ -4560,15 +5308,73 @@
           
 
             <li class="frame-info app">
+              <code>&#x2F;Users&#x2F;student&#x2F;Projects&#x2F;Party-Dinosaurs-BnB&#x2F;spec&#x2F;web_helpers.rb</code> in
+                <code><strong>signup_and_in</strong></code>
+            </li>
+
+            <li class="code app">
+              
+              <ol start="1"
+                  class="pre-context" id="pre-69"
+                  onclick="toggle(69);">
+                
+                <li class="pre-context-line"><code>def signup_and_in
+</code></li>
+                
+                <li class="pre-context-line"><code>  visit(&#x27;&#x2F;signup&#x27;)
+</code></li>
+                
+                <li class="pre-context-line"><code>  fill_in &#x27;name&#x27;, with: &#x27;John Smith&#x27;
+</code></li>
+                
+                <li class="pre-context-line"><code>  fill_in &#x27;username&#x27;, with: &#x27;JohnSmith&#x27;
+</code></li>
+                
+                <li class="pre-context-line"><code>  fill_in &#x27;email&#x27;, with: &#x27;jsmith@gmail.com&#x27;
+</code></li>
+                
+                <li class="pre-context-line"><code>  fill_in &#x27;password&#x27;, with: &#x27;backseatfreestyle&#x27;
+</code></li>
+                
+              </ol>
+              
+
+              <ol start="7" class="context" id="69"
+                  onclick="toggle(69);">
+                <li class="context-line" id="context-69"><code>  click_button(&#x27;submit&#x27;)</code></li>
+              </ol>
+
+              
+              <ol start="8" class="post-context"
+                  id="post-69" onclick="toggle(69);">
+                
+                <li class="post-context-line"><code>end
+</code></li>
+                
+              </ol>
+              
+              <div class="clear"></div>
+            </li>
+
+          
+
+        
+      
+          
+
+            <li class="frame-info app">
               <code>&#x2F;Users&#x2F;student&#x2F;Projects&#x2F;Party-Dinosaurs-BnB&#x2F;spec&#x2F;features&#x2F;viewing_spaces_spec.rb</code> in
                 <code><strong>block (2 levels) in &lt;top (required)&gt;</strong></code>
             </li>
 
             <li class="code app">
               
-              <ol start="7"
-                  class="pre-context" id="pre-59"
-                  onclick="toggle(59);">
+              <ol start="6"
+                  class="pre-context" id="pre-70"
+                  onclick="toggle(70);">
+                
+                <li class="pre-context-line"><code>
+</code></li>
                 
                 <li class="pre-context-line"><code>  scenario &#x27;user can see spaces&#x27; do
 </code></li>
@@ -4588,22 +5394,22 @@
                 <li class="pre-context-line"><code>    Space.create(name: &#x27;house&#x27;, description: &#x27;rural area&#x27;, price: &#x27;£40&#x27;, available_from: &#x27;November 20 2019&#x27;, available_to: &#x27;November 30 2019&#x27;, created_by: user.id)
 </code></li>
                 
-                <li class="pre-context-line"><code>    signup_and_in
-</code></li>
-                
               </ol>
               
 
-              <ol start="14" class="context" id="59"
-                  onclick="toggle(59);">
-                <li class="context-line" id="context-59"><code>    visit(&#x27;&#x2F;spaces&#x27;)</code></li>
+              <ol start="13" class="context" id="70"
+                  onclick="toggle(70);">
+                <li class="context-line" id="context-70"><code>    signup_and_in</code></li>
               </ol>
 
               
-              <ol start="15" class="post-context"
-                  id="post-59" onclick="toggle(59);">
+              <ol start="14" class="post-context"
+                  id="post-70" onclick="toggle(70);">
                 
                 <li class="post-context-line"><code>    save_and_open_page
+</code></li>
+                
+                <li class="post-context-line"><code>    visit(&#x27;&#x2F;spaces&#x27;)
 </code></li>
                 
                 <li class="post-context-line"><code>
@@ -4619,9 +5425,6 @@
 </code></li>
                 
                 <li class="post-context-line"><code>
-</code></li>
-                
-                <li class="post-context-line"><code>  scenario &#x27;user can log out&#x27; do
 </code></li>
                 
               </ol>
@@ -4643,8 +5446,8 @@
             <li class="code system">
               
               <ol start="250"
-                  class="pre-context" id="pre-60"
-                  onclick="toggle(60);">
+                  class="pre-context" id="pre-71"
+                  onclick="toggle(71);">
                 
                 <li class="pre-context-line"><code>        begin
 </code></li>
@@ -4670,14 +5473,14 @@
               </ol>
               
 
-              <ol start="257" class="context" id="60"
-                  onclick="toggle(60);">
-                <li class="context-line" id="context-60"><code>                @example_group_instance.instance_exec(self, &amp;@example_block)</code></li>
+              <ol start="257" class="context" id="71"
+                  onclick="toggle(71);">
+                <li class="context-line" id="context-71"><code>                @example_group_instance.instance_exec(self, &amp;@example_block)</code></li>
               </ol>
 
               
               <ol start="258" class="post-context"
-                  id="post-60" onclick="toggle(60);">
+                  id="post-71" onclick="toggle(71);">
                 
                 <li class="post-context-line"><code>
 </code></li>
@@ -4719,8 +5522,8 @@
             <li class="code system">
               
               <ol start="250"
-                  class="pre-context" id="pre-61"
-                  onclick="toggle(61);">
+                  class="pre-context" id="pre-72"
+                  onclick="toggle(72);">
                 
                 <li class="pre-context-line"><code>        begin
 </code></li>
@@ -4746,14 +5549,14 @@
               </ol>
               
 
-              <ol start="257" class="context" id="61"
-                  onclick="toggle(61);">
-                <li class="context-line" id="context-61"><code>                @example_group_instance.instance_exec(self, &amp;@example_block)</code></li>
+              <ol start="257" class="context" id="72"
+                  onclick="toggle(72);">
+                <li class="context-line" id="context-72"><code>                @example_group_instance.instance_exec(self, &amp;@example_block)</code></li>
               </ol>
 
               
               <ol start="258" class="post-context"
-                  id="post-61" onclick="toggle(61);">
+                  id="post-72" onclick="toggle(72);">
                 
                 <li class="post-context-line"><code>
 </code></li>
@@ -4795,8 +5598,8 @@
             <li class="code system">
               
               <ol start="496"
-                  class="pre-context" id="pre-62"
-                  onclick="toggle(62);">
+                  class="pre-context" id="pre-73"
+                  onclick="toggle(73);">
                 
                 <li class="pre-context-line"><code>        @example_group_instance.setup_mocks_for_rspec
 </code></li>
@@ -4822,14 +5625,14 @@
               </ol>
               
 
-              <ol start="503" class="context" id="62"
-                  onclick="toggle(62);">
-                <li class="context-line" id="context-62"><code>        with_around_example_hooks { yield }</code></li>
+              <ol start="503" class="context" id="73"
+                  onclick="toggle(73);">
+                <li class="context-line" id="context-73"><code>        with_around_example_hooks { yield }</code></li>
               </ol>
 
               
               <ol start="504" class="post-context"
-                  id="post-62" onclick="toggle(62);">
+                  id="post-73" onclick="toggle(73);">
                 
                 <li class="post-context-line"><code>      ensure
 </code></li>
@@ -4871,8 +5674,8 @@
             <li class="code system">
               
               <ol start="453"
-                  class="pre-context" id="pre-63"
-                  onclick="toggle(63);">
+                  class="pre-context" id="pre-74"
+                  onclick="toggle(74);">
                 
                 <li class="pre-context-line"><code>    private
 </code></li>
@@ -4898,14 +5701,14 @@
               </ol>
               
 
-              <ol start="460" class="context" id="63"
-                  onclick="toggle(63);">
-                <li class="context-line" id="context-63"><code>        hooks.run(:around, :example, self) { yield }</code></li>
+              <ol start="460" class="context" id="74"
+                  onclick="toggle(74);">
+                <li class="context-line" id="context-74"><code>        hooks.run(:around, :example, self) { yield }</code></li>
               </ol>
 
               
               <ol start="461" class="post-context"
-                  id="post-63" onclick="toggle(63);">
+                  id="post-74" onclick="toggle(74);">
                 
                 <li class="post-context-line"><code>      rescue Support::AllExceptionsExceptOnesWeMustNotRescue =&gt; e
 </code></li>
@@ -4947,8 +5750,8 @@
             <li class="code system">
               
               <ol start="465"
-                  class="pre-context" id="pre-64"
-                  onclick="toggle(64);">
+                  class="pre-context" id="pre-75"
+                  onclick="toggle(75);">
                 
                 <li class="pre-context-line"><code>            unless example_or_group.class.metadata[:skip]
 </code></li>
@@ -4974,14 +5777,14 @@
               </ol>
               
 
-              <ol start="472" class="context" id="64"
-                  onclick="toggle(64);">
-                <li class="context-line" id="context-64"><code>            when :around then run_around_example_hooks_for(example_or_group) { yield }</code></li>
+              <ol start="472" class="context" id="75"
+                  onclick="toggle(75);">
+                <li class="context-line" id="context-75"><code>            when :around then run_around_example_hooks_for(example_or_group) { yield }</code></li>
               </ol>
 
               
               <ol start="473" class="post-context"
-                  id="post-64" onclick="toggle(64);">
+                  id="post-75" onclick="toggle(75);">
                 
                 <li class="post-context-line"><code>            end
 </code></li>
@@ -5023,8 +5826,8 @@
             <li class="code system">
               
               <ol start="603"
-                  class="pre-context" id="pre-65"
-                  onclick="toggle(65);">
+                  class="pre-context" id="pre-76"
+                  onclick="toggle(76);">
                 
                 <li class="pre-context-line"><code>        end
 </code></li>
@@ -5050,14 +5853,14 @@
               </ol>
               
 
-              <ol start="610" class="context" id="65"
-                  onclick="toggle(65);">
-                <li class="context-line" id="context-65"><code>          return yield if hooks.empty? # exit early to avoid the extra allocation cost of `Example::Procsy`</code></li>
+              <ol start="610" class="context" id="76"
+                  onclick="toggle(76);">
+                <li class="context-line" id="context-76"><code>          return yield if hooks.empty? # exit early to avoid the extra allocation cost of `Example::Procsy`</code></li>
               </ol>
 
               
               <ol start="611" class="post-context"
-                  id="post-65" onclick="toggle(65);">
+                  id="post-76" onclick="toggle(76);">
                 
                 <li class="post-context-line"><code>
 </code></li>
@@ -5099,8 +5902,8 @@
             <li class="code system">
               
               <ol start="465"
-                  class="pre-context" id="pre-66"
-                  onclick="toggle(66);">
+                  class="pre-context" id="pre-77"
+                  onclick="toggle(77);">
                 
                 <li class="pre-context-line"><code>            unless example_or_group.class.metadata[:skip]
 </code></li>
@@ -5126,14 +5929,14 @@
               </ol>
               
 
-              <ol start="472" class="context" id="66"
-                  onclick="toggle(66);">
-                <li class="context-line" id="context-66"><code>            when :around then run_around_example_hooks_for(example_or_group) { yield }</code></li>
+              <ol start="472" class="context" id="77"
+                  onclick="toggle(77);">
+                <li class="context-line" id="context-77"><code>            when :around then run_around_example_hooks_for(example_or_group) { yield }</code></li>
               </ol>
 
               
               <ol start="473" class="post-context"
-                  id="post-66" onclick="toggle(66);">
+                  id="post-77" onclick="toggle(77);">
                 
                 <li class="post-context-line"><code>            end
 </code></li>
@@ -5175,8 +5978,8 @@
             <li class="code system">
               
               <ol start="453"
-                  class="pre-context" id="pre-67"
-                  onclick="toggle(67);">
+                  class="pre-context" id="pre-78"
+                  onclick="toggle(78);">
                 
                 <li class="pre-context-line"><code>    private
 </code></li>
@@ -5202,14 +6005,14 @@
               </ol>
               
 
-              <ol start="460" class="context" id="67"
-                  onclick="toggle(67);">
-                <li class="context-line" id="context-67"><code>        hooks.run(:around, :example, self) { yield }</code></li>
+              <ol start="460" class="context" id="78"
+                  onclick="toggle(78);">
+                <li class="context-line" id="context-78"><code>        hooks.run(:around, :example, self) { yield }</code></li>
               </ol>
 
               
               <ol start="461" class="post-context"
-                  id="post-67" onclick="toggle(67);">
+                  id="post-78" onclick="toggle(78);">
                 
                 <li class="post-context-line"><code>      rescue Support::AllExceptionsExceptOnesWeMustNotRescue =&gt; e
 </code></li>
@@ -5251,8 +6054,8 @@
             <li class="code system">
               
               <ol start="496"
-                  class="pre-context" id="pre-68"
-                  onclick="toggle(68);">
+                  class="pre-context" id="pre-79"
+                  onclick="toggle(79);">
                 
                 <li class="pre-context-line"><code>        @example_group_instance.setup_mocks_for_rspec
 </code></li>
@@ -5278,14 +6081,14 @@
               </ol>
               
 
-              <ol start="503" class="context" id="68"
-                  onclick="toggle(68);">
-                <li class="context-line" id="context-68"><code>        with_around_example_hooks { yield }</code></li>
+              <ol start="503" class="context" id="79"
+                  onclick="toggle(79);">
+                <li class="context-line" id="context-79"><code>        with_around_example_hooks { yield }</code></li>
               </ol>
 
               
               <ol start="504" class="post-context"
-                  id="post-68" onclick="toggle(68);">
+                  id="post-79" onclick="toggle(79);">
                 
                 <li class="post-context-line"><code>      ensure
 </code></li>
@@ -5327,8 +6130,8 @@
             <li class="code system">
               
               <ol start="247"
-                  class="pre-context" id="pre-69"
-                  onclick="toggle(69);">
+                  class="pre-context" id="pre-80"
+                  onclick="toggle(80);">
                 
                 <li class="pre-context-line"><code>        start(reporter)
 </code></li>
@@ -5354,14 +6157,14 @@
               </ol>
               
 
-              <ol start="254" class="context" id="69"
-                  onclick="toggle(69);">
-                <li class="context-line" id="context-69"><code>            with_around_and_singleton_context_hooks do</code></li>
+              <ol start="254" class="context" id="80"
+                  onclick="toggle(80);">
+                <li class="context-line" id="context-80"><code>            with_around_and_singleton_context_hooks do</code></li>
               </ol>
 
               
               <ol start="255" class="post-context"
-                  id="post-69" onclick="toggle(69);">
+                  id="post-80" onclick="toggle(80);">
                 
                 <li class="post-context-line"><code>              begin
 </code></li>
@@ -5403,8 +6206,8 @@
             <li class="code system">
               
               <ol start="626"
-                  class="pre-context" id="pre-70"
-                  onclick="toggle(70);">
+                  class="pre-context" id="pre-81"
+                  onclick="toggle(81);">
                 
                 <li class="pre-context-line"><code>
 </code></li>
@@ -5430,14 +6233,14 @@
               </ol>
               
 
-              <ol start="633" class="context" id="70"
-                  onclick="toggle(70);">
-                <li class="context-line" id="context-70"><code>          succeeded = example.run(instance, reporter)</code></li>
+              <ol start="633" class="context" id="81"
+                  onclick="toggle(81);">
+                <li class="context-line" id="context-81"><code>          succeeded = example.run(instance, reporter)</code></li>
               </ol>
 
               
               <ol start="634" class="post-context"
-                  id="post-70" onclick="toggle(70);">
+                  id="post-81" onclick="toggle(81);">
                 
                 <li class="post-context-line"><code>          if !succeeded &amp;&amp; reporter.fail_fast_limit_met?
 </code></li>
@@ -5479,8 +6282,8 @@
             <li class="code system">
               
               <ol start="622"
-                  class="pre-context" id="pre-71"
-                  onclick="toggle(71);">
+                  class="pre-context" id="pre-82"
+                  onclick="toggle(82);">
                 
                 <li class="pre-context-line"><code>
 </code></li>
@@ -5506,14 +6309,14 @@
               </ol>
               
 
-              <ol start="629" class="context" id="71"
-                  onclick="toggle(71);">
-                <li class="context-line" id="context-71"><code>        ordering_strategy.order(filtered_examples).map do |example|</code></li>
+              <ol start="629" class="context" id="82"
+                  onclick="toggle(82);">
+                <li class="context-line" id="context-82"><code>        ordering_strategy.order(filtered_examples).map do |example|</code></li>
               </ol>
 
               
               <ol start="630" class="post-context"
-                  id="post-71" onclick="toggle(71);">
+                  id="post-82" onclick="toggle(82);">
                 
                 <li class="post-context-line"><code>          next if RSpec.world.wants_to_quit
 </code></li>
@@ -5555,8 +6358,8 @@
             <li class="code system">
               
               <ol start="622"
-                  class="pre-context" id="pre-72"
-                  onclick="toggle(72);">
+                  class="pre-context" id="pre-83"
+                  onclick="toggle(83);">
                 
                 <li class="pre-context-line"><code>
 </code></li>
@@ -5582,14 +6385,14 @@
               </ol>
               
 
-              <ol start="629" class="context" id="72"
-                  onclick="toggle(72);">
-                <li class="context-line" id="context-72"><code>        ordering_strategy.order(filtered_examples).map do |example|</code></li>
+              <ol start="629" class="context" id="83"
+                  onclick="toggle(83);">
+                <li class="context-line" id="context-83"><code>        ordering_strategy.order(filtered_examples).map do |example|</code></li>
               </ol>
 
               
               <ol start="630" class="post-context"
-                  id="post-72" onclick="toggle(72);">
+                  id="post-83" onclick="toggle(83);">
                 
                 <li class="post-context-line"><code>          next if RSpec.world.wants_to_quit
 </code></li>
@@ -5631,8 +6434,8 @@
             <li class="code system">
               
               <ol start="588"
-                  class="pre-context" id="pre-73"
-                  onclick="toggle(73);">
+                  class="pre-context" id="pre-84"
+                  onclick="toggle(84);">
                 
                 <li class="pre-context-line"><code>      def self.run(reporter=RSpec::Core::NullReporter)
 </code></li>
@@ -5658,14 +6461,14 @@
               </ol>
               
 
-              <ol start="595" class="context" id="73"
-                  onclick="toggle(73);">
-                <li class="context-line" id="context-73"><code>          result_for_this_group = run_examples(reporter)</code></li>
+              <ol start="595" class="context" id="84"
+                  onclick="toggle(84);">
+                <li class="context-line" id="context-84"><code>          result_for_this_group = run_examples(reporter)</code></li>
               </ol>
 
               
               <ol start="596" class="post-context"
-                  id="post-73" onclick="toggle(73);">
+                  id="post-84" onclick="toggle(84);">
                 
                 <li class="post-context-line"><code>          results_for_descendants = ordering_strategy.order(children).map { |child| child.run(reporter) }.all?
 </code></li>
@@ -5707,8 +6510,8 @@
             <li class="code system">
               
               <ol start="114"
-                  class="pre-context" id="pre-74"
-                  onclick="toggle(74);">
+                  class="pre-context" id="pre-85"
+                  onclick="toggle(85);">
                 
                 <li class="pre-context-line"><code>        examples_count = @world.example_count(example_groups)
 </code></li>
@@ -5734,14 +6537,14 @@
               </ol>
               
 
-              <ol start="121" class="context" id="74"
-                  onclick="toggle(74);">
-                <li class="context-line" id="context-74"><code>            example_groups.map { |g| g.run(reporter) }.all?</code></li>
+              <ol start="121" class="context" id="85"
+                  onclick="toggle(85);">
+                <li class="context-line" id="context-85"><code>            example_groups.map { |g| g.run(reporter) }.all?</code></li>
               </ol>
 
               
               <ol start="122" class="post-context"
-                  id="post-74" onclick="toggle(74);">
+                  id="post-85" onclick="toggle(85);">
                 
                 <li class="post-context-line"><code>          end
 </code></li>
@@ -5783,8 +6586,8 @@
             <li class="code system">
               
               <ol start="114"
-                  class="pre-context" id="pre-75"
-                  onclick="toggle(75);">
+                  class="pre-context" id="pre-86"
+                  onclick="toggle(86);">
                 
                 <li class="pre-context-line"><code>        examples_count = @world.example_count(example_groups)
 </code></li>
@@ -5810,14 +6613,14 @@
               </ol>
               
 
-              <ol start="121" class="context" id="75"
-                  onclick="toggle(75);">
-                <li class="context-line" id="context-75"><code>            example_groups.map { |g| g.run(reporter) }.all?</code></li>
+              <ol start="121" class="context" id="86"
+                  onclick="toggle(86);">
+                <li class="context-line" id="context-86"><code>            example_groups.map { |g| g.run(reporter) }.all?</code></li>
               </ol>
 
               
               <ol start="122" class="post-context"
-                  id="post-75" onclick="toggle(75);">
+                  id="post-86" onclick="toggle(86);">
                 
                 <li class="post-context-line"><code>          end
 </code></li>
@@ -5859,8 +6662,8 @@
             <li class="code system">
               
               <ol start="114"
-                  class="pre-context" id="pre-76"
-                  onclick="toggle(76);">
+                  class="pre-context" id="pre-87"
+                  onclick="toggle(87);">
                 
                 <li class="pre-context-line"><code>        examples_count = @world.example_count(example_groups)
 </code></li>
@@ -5886,14 +6689,14 @@
               </ol>
               
 
-              <ol start="121" class="context" id="76"
-                  onclick="toggle(76);">
-                <li class="context-line" id="context-76"><code>            example_groups.map { |g| g.run(reporter) }.all?</code></li>
+              <ol start="121" class="context" id="87"
+                  onclick="toggle(87);">
+                <li class="context-line" id="context-87"><code>            example_groups.map { |g| g.run(reporter) }.all?</code></li>
               </ol>
 
               
               <ol start="122" class="post-context"
-                  id="post-76" onclick="toggle(76);">
+                  id="post-87" onclick="toggle(87);">
                 
                 <li class="post-context-line"><code>          end
 </code></li>
@@ -5935,8 +6738,8 @@
             <li class="code system">
               
               <ol start="2024"
-                  class="pre-context" id="pre-77"
-                  onclick="toggle(77);">
+                  class="pre-context" id="pre-88"
+                  onclick="toggle(88);">
                 
                 <li class="pre-context-line"><code>
 </code></li>
@@ -5962,14 +6765,14 @@
               </ol>
               
 
-              <ol start="2031" class="context" id="77"
-                  onclick="toggle(77);">
-                <li class="context-line" id="context-77"><code>          yield</code></li>
+              <ol start="2031" class="context" id="88"
+                  onclick="toggle(88);">
+                <li class="context-line" id="context-88"><code>          yield</code></li>
               </ol>
 
               
               <ol start="2032" class="post-context"
-                  id="post-77" onclick="toggle(77);">
+                  id="post-88" onclick="toggle(88);">
                 
                 <li class="post-context-line"><code>        ensure
 </code></li>
@@ -6011,8 +6814,8 @@
             <li class="code system">
               
               <ol start="109"
-                  class="pre-context" id="pre-78"
-                  onclick="toggle(78);">
+                  class="pre-context" id="pre-89"
+                  onclick="toggle(89);">
                 
                 <li class="pre-context-line"><code>      # @param example_groups [Array&lt;RSpec::Core::ExampleGroup&gt;] groups to run
 </code></li>
@@ -6038,14 +6841,14 @@
               </ol>
               
 
-              <ol start="116" class="context" id="78"
-                  onclick="toggle(78);">
-                <li class="context-line" id="context-78"><code>          @configuration.with_suite_hooks do</code></li>
+              <ol start="116" class="context" id="89"
+                  onclick="toggle(89);">
+                <li class="context-line" id="context-89"><code>          @configuration.with_suite_hooks do</code></li>
               </ol>
 
               
               <ol start="117" class="post-context"
-                  id="post-78" onclick="toggle(78);">
+                  id="post-89" onclick="toggle(89);">
                 
                 <li class="post-context-line"><code>            if examples_count == 0 &amp;&amp; @configuration.fail_if_no_examples
 </code></li>
@@ -6087,8 +6890,8 @@
             <li class="code system">
               
               <ol start="67"
-                  class="pre-context" id="pre-79"
-                  onclick="toggle(79);">
+                  class="pre-context" id="pre-90"
+                  onclick="toggle(90);">
                 
                 <li class="pre-context-line"><code>    #     reporter.report(group.examples.size) do |r|
 </code></li>
@@ -6114,14 +6917,14 @@
               </ol>
               
 
-              <ol start="74" class="context" id="79"
-                  onclick="toggle(79);">
-                <li class="context-line" id="context-79"><code>        yield self</code></li>
+              <ol start="74" class="context" id="90"
+                  onclick="toggle(90);">
+                <li class="context-line" id="context-90"><code>        yield self</code></li>
               </ol>
 
               
               <ol start="75" class="post-context"
-                  id="post-79" onclick="toggle(79);">
+                  id="post-90" onclick="toggle(90);">
                 
                 <li class="post-context-line"><code>      ensure
 </code></li>
@@ -6163,8 +6966,8 @@
             <li class="code system">
               
               <ol start="108"
-                  class="pre-context" id="pre-80"
-                  onclick="toggle(80);">
+                  class="pre-context" id="pre-91"
+                  onclick="toggle(91);">
                 
                 <li class="pre-context-line"><code>      #
 </code></li>
@@ -6190,14 +6993,14 @@
               </ol>
               
 
-              <ol start="115" class="context" id="80"
-                  onclick="toggle(80);">
-                <li class="context-line" id="context-80"><code>        success = @configuration.reporter.report(examples_count) do |reporter|</code></li>
+              <ol start="115" class="context" id="91"
+                  onclick="toggle(91);">
+                <li class="context-line" id="context-91"><code>        success = @configuration.reporter.report(examples_count) do |reporter|</code></li>
               </ol>
 
               
               <ol start="116" class="post-context"
-                  id="post-80" onclick="toggle(80);">
+                  id="post-91" onclick="toggle(91);">
                 
                 <li class="post-context-line"><code>          @configuration.with_suite_hooks do
 </code></li>
@@ -6239,8 +7042,8 @@
             <li class="code system">
               
               <ol start="82"
-                  class="pre-context" id="pre-81"
-                  onclick="toggle(81);">
+                  class="pre-context" id="pre-92"
+                  onclick="toggle(92);">
                 
                 <li class="pre-context-line"><code>      #
 </code></li>
@@ -6266,14 +7069,14 @@
               </ol>
               
 
-              <ol start="89" class="context" id="81"
-                  onclick="toggle(81);">
-                <li class="context-line" id="context-81"><code>        run_specs(@world.ordered_example_groups).tap do</code></li>
+              <ol start="89" class="context" id="92"
+                  onclick="toggle(92);">
+                <li class="context-line" id="context-92"><code>        run_specs(@world.ordered_example_groups).tap do</code></li>
               </ol>
 
               
               <ol start="90" class="post-context"
-                  id="post-81" onclick="toggle(81);">
+                  id="post-92" onclick="toggle(92);">
                 
                 <li class="post-context-line"><code>          persist_example_statuses
 </code></li>
@@ -6315,8 +7118,8 @@
             <li class="code system">
               
               <ol start="64"
-                  class="pre-context" id="pre-82"
-                  onclick="toggle(82);">
+                  class="pre-context" id="pre-93"
+                  onclick="toggle(93);">
                 
                 <li class="pre-context-line"><code>      def self.run(args, err=$stderr, out=$stdout)
 </code></li>
@@ -6342,14 +7145,14 @@
               </ol>
               
 
-              <ol start="71" class="context" id="82"
-                  onclick="toggle(82);">
-                <li class="context-line" id="context-82"><code>          new(options).run(err, out)</code></li>
+              <ol start="71" class="context" id="93"
+                  onclick="toggle(93);">
+                <li class="context-line" id="context-93"><code>          new(options).run(err, out)</code></li>
               </ol>
 
               
               <ol start="72" class="post-context"
-                  id="post-82" onclick="toggle(82);">
+                  id="post-93" onclick="toggle(93);">
                 
                 <li class="post-context-line"><code>        end
 </code></li>
@@ -6391,8 +7194,8 @@
             <li class="code system">
               
               <ol start="38"
-                  class="pre-context" id="pre-83"
-                  onclick="toggle(83);">
+                  class="pre-context" id="pre-94"
+                  onclick="toggle(94);">
                 
                 <li class="pre-context-line"><code>        invoke
 </code></li>
@@ -6418,14 +7221,14 @@
               </ol>
               
 
-              <ol start="45" class="context" id="83"
-                  onclick="toggle(83);">
-                <li class="context-line" id="context-83"><code>        status = run(ARGV, $stderr, $stdout).to_i</code></li>
+              <ol start="45" class="context" id="94"
+                  onclick="toggle(94);">
+                <li class="context-line" id="context-94"><code>        status = run(ARGV, $stderr, $stdout).to_i</code></li>
               </ol>
 
               
               <ol start="46" class="post-context"
-                  id="post-83" onclick="toggle(83);">
+                  id="post-94" onclick="toggle(94);">
                 
                 <li class="post-context-line"><code>        exit(status) if status != 0
 </code></li>
@@ -6467,8 +7270,8 @@
             <li class="code system">
               
               <ol start="1"
-                  class="pre-context" id="pre-84"
-                  onclick="toggle(84);">
+                  class="pre-context" id="pre-95"
+                  onclick="toggle(95);">
                 
                 <li class="pre-context-line"><code>#!&#x2F;usr&#x2F;bin&#x2F;env ruby
 </code></li>
@@ -6482,14 +7285,14 @@
               </ol>
               
 
-              <ol start="4" class="context" id="84"
-                  onclick="toggle(84);">
-                <li class="context-line" id="context-84"><code>RSpec::Core::Runner.invoke</code></li>
+              <ol start="4" class="context" id="95"
+                  onclick="toggle(95);">
+                <li class="context-line" id="context-95"><code>RSpec::Core::Runner.invoke</code></li>
               </ol>
 
               
               <ol start="5" class="post-context"
-                  id="post-84" onclick="toggle(84);">
+                  id="post-95" onclick="toggle(95);">
                 
               </ol>
               
@@ -6510,8 +7313,8 @@
             <li class="code system">
               
               <ol start="16"
-                  class="pre-context" id="pre-85"
-                  onclick="toggle(85);">
+                  class="pre-context" id="pre-96"
+                  onclick="toggle(96);">
                 
                 <li class="pre-context-line"><code>  if str and Gem::Version.correct?(str)
 </code></li>
@@ -6537,14 +7340,14 @@
               </ol>
               
 
-              <ol start="23" class="context" id="85"
-                  onclick="toggle(85);">
-                <li class="context-line" id="context-85"><code>load Gem.activate_bin_path(&#x27;rspec-core&#x27;, &#x27;rspec&#x27;, version)</code></li>
+              <ol start="23" class="context" id="96"
+                  onclick="toggle(96);">
+                <li class="context-line" id="context-96"><code>load Gem.activate_bin_path(&#x27;rspec-core&#x27;, &#x27;rspec&#x27;, version)</code></li>
               </ol>
 
               
               <ol start="24" class="post-context"
-                  id="post-85" onclick="toggle(85);">
+                  id="post-96" onclick="toggle(96);">
                 
                 <li class="post-context-line"><code>else
 </code></li>
@@ -6577,8 +7380,8 @@
             <li class="code system">
               
               <ol start="16"
-                  class="pre-context" id="pre-86"
-                  onclick="toggle(86);">
+                  class="pre-context" id="pre-97"
+                  onclick="toggle(97);">
                 
                 <li class="pre-context-line"><code>  if str and Gem::Version.correct?(str)
 </code></li>
@@ -6604,14 +7407,14 @@
               </ol>
               
 
-              <ol start="23" class="context" id="86"
-                  onclick="toggle(86);">
-                <li class="context-line" id="context-86"><code>load Gem.activate_bin_path(&#x27;rspec-core&#x27;, &#x27;rspec&#x27;, version)</code></li>
+              <ol start="23" class="context" id="97"
+                  onclick="toggle(97);">
+                <li class="context-line" id="context-97"><code>load Gem.activate_bin_path(&#x27;rspec-core&#x27;, &#x27;rspec&#x27;, version)</code></li>
               </ol>
 
               
               <ol start="24" class="post-context"
-                  id="post-86" onclick="toggle(86);">
+                  id="post-97" onclick="toggle(97);">
                 
                 <li class="post-context-line"><code>else
 </code></li>
@@ -6644,8 +7447,8 @@
             <li class="code system">
               
               <ol start="17"
-                  class="pre-context" id="pre-87"
-                  onclick="toggle(87);">
+                  class="pre-context" id="pre-98"
+                  onclick="toggle(98);">
                 
                 <li class="pre-context-line"><code>if
 </code></li>
@@ -6671,14 +7474,14 @@
               </ol>
               
 
-              <ol start="24" class="context" id="87"
-                  onclick="toggle(87);">
-                <li class="context-line" id="context-87"><code>  eval content, binding, $0</code></li>
+              <ol start="24" class="context" id="98"
+                  onclick="toggle(98);">
+                <li class="context-line" id="context-98"><code>  eval content, binding, $0</code></li>
               </ol>
 
               
               <ol start="25" class="post-context"
-                  id="post-87" onclick="toggle(87);">
+                  id="post-98" onclick="toggle(98);">
                 
                 <li class="post-context-line"><code>end
 </code></li>
@@ -6702,8 +7505,8 @@
             <li class="code system">
               
               <ol start="17"
-                  class="pre-context" id="pre-88"
-                  onclick="toggle(88);">
+                  class="pre-context" id="pre-99"
+                  onclick="toggle(99);">
                 
                 <li class="pre-context-line"><code>if
 </code></li>
@@ -6729,14 +7532,14 @@
               </ol>
               
 
-              <ol start="24" class="context" id="88"
-                  onclick="toggle(88);">
-                <li class="context-line" id="context-88"><code>  eval content, binding, $0</code></li>
+              <ol start="24" class="context" id="99"
+                  onclick="toggle(99);">
+                <li class="context-line" id="context-99"><code>  eval content, binding, $0</code></li>
               </ol>
 
               
               <ol start="25" class="post-context"
-                  id="post-88" onclick="toggle(88);">
+                  id="post-99" onclick="toggle(99);">
                 
                 <li class="post-context-line"><code>end
 </code></li>
@@ -6783,7 +7586,7 @@
           
             <tr>
               <td>rack.session</td>
-              <td class="code"><div>&quot;BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiRTAzN2M4MzdjOWViNTQ4YWQwNDRk\nMDEyNmFiZTUwYmIxYWEzNWFhOGY4ZTVkNjljZDY3NzY3ODlkNjdhYjQzNWIG\nOwBGSSIJY3NyZgY7AEZJIjErQVVIVjJoL3N0dHZhZkVtSjlrZFRvUENRL0k4\nMkw5R2xES1piaXpFeGJVPQY7AEZJIg10cmFja2luZwY7AEZ7BkkiFEhUVFBf\nVVNFUl9BR0VOVAY7AFRJIi1kYTM5YTNlZTVlNmI0YjBkMzI1NWJmZWY5NTYw\nMTg5MGFmZDgwNzA5BjsARg==\n--269ee84357cea66d388c8c2685ab816c9619caa8&quot;</div></td>
+              <td class="code"><div>&quot;BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiRTcxOTdhMDAyM2FkNDQ0MmQ4ZWQz\nY2M2ODQyM2E3ZmRmNTdmY2FhZjUzZWRhZWIwN2NiYTg1MjIzMDc5MThhOTYG\nOwBGSSIJY3NyZgY7AEZJIjFhU1ZmRlpZWGhtWkJLN0p2eFp5NFdRMVJXejRj\nb1dNZFprckpDZytUTjE0PQY7AEZJIg10cmFja2luZwY7AEZ7BkkiFEhUVFBf\nVVNFUl9BR0VOVAY7AFRJIi1kYTM5YTNlZTVlNmI0YjBkMzI1NWJmZWY5NTYw\nMTg5MGFmZDgwNzA5BjsARkkiC3VzZXJJRAY7AFRpEw==\n--0c5d582c5deec133b808e270b1c9ae9d9c82f1d2&quot;</div></td>
             </tr>
           
         </table>
@@ -6811,12 +7614,17 @@
          
          <tr>
            <td>HTTP_COOKIE</td>
-           <td class="code"><div>rack.session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiRTAzN2M4MzdjOWViNTQ4YWQwNDRk%0AMDEyNmFiZTUwYmIxYWEzNWFhOGY4ZTVkNjljZDY3NzY3ODlkNjdhYjQzNWIG%0AOwBGSSIJY3NyZgY7AEZJIjErQVVIVjJoL3N0dHZhZkVtSjlrZFRvUENRL0k4%0AMkw5R2xES1piaXpFeGJVPQY7AEZJIg10cmFja2luZwY7AEZ7BkkiFEhUVFBf%0AVVNFUl9BR0VOVAY7AFRJIi1kYTM5YTNlZTVlNmI0YjBkMzI1NWJmZWY5NTYw%0AMTg5MGFmZDgwNzA5BjsARg%3D%3D%0A--269ee84357cea66d388c8c2685ab816c9619caa8</div></td>
+           <td class="code"><div>rack.session=BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiRTcxOTdhMDAyM2FkNDQ0MmQ4ZWQz%0AY2M2ODQyM2E3ZmRmNTdmY2FhZjUzZWRhZWIwN2NiYTg1MjIzMDc5MThhOTYG%0AOwBGSSIJY3NyZgY7AEZJIjFhU1ZmRlpZWGhtWkJLN0p2eFp5NFdRMVJXejRj%0Ab1dNZFprckpDZytUTjE0PQY7AEZJIg10cmFja2luZwY7AEZ7BkkiFEhUVFBf%0AVVNFUl9BR0VOVAY7AFRJIi1kYTM5YTNlZTVlNmI0YjBkMzI1NWJmZWY5NTYw%0AMTg5MGFmZDgwNzA5BjsARkkiC3VzZXJJRAY7AFRpEw%3D%3D%0A--0c5d582c5deec133b808e270b1c9ae9d9c82f1d2</div></td>
          </tr>
          
          <tr>
            <td>HTTP_HOST</td>
            <td class="code"><div>www.example.com</div></td>
+         </tr>
+         
+         <tr>
+           <td>HTTP_REFERER</td>
+           <td class="code"><div>http:&#x2F;&#x2F;www.example.com&#x2F;signup</div></td>
          </tr>
          
          <tr>
@@ -6856,17 +7664,17 @@
          
          <tr>
            <td>rack.errors</td>
-           <td class="code"><div>#&lt;Object:0x00007fa6fbce9c68&gt;</div></td>
+           <td class="code"><div>#&lt;Object:0x00007fb8c5602658&gt;</div></td>
          </tr>
          
          <tr>
            <td>rack.input</td>
-           <td class="code"><div>#&lt;StringIO:0x00007fa6ff4357f8&gt;</div></td>
+           <td class="code"><div>#&lt;StringIO:0x00007fb8c8d948c8&gt;</div></td>
          </tr>
          
          <tr>
            <td>rack.logger</td>
-           <td class="code"><div>#&lt;Rack::NullLogger:0x00007fa6fbcbb9f8 @app=#&lt;Rack::Session::Cookie:0x00007fa6fbcbbd68 @secrets=[&quot;d12876950f35dc7b8283955b5b2098a0b6013ebad0c448eb624489efc1ad80db3d924ba9603c0ca7c9526ccc08c52931e3acc1871ad59d67dffb77e561dff1e8&quot;], @hmac=OpenSSL::Digest::SHA1, @coder=#&lt;Rack::Session::Cookie::Base64::Marshal:0x00007fa6fbcbbc28&gt;, @app=#&lt;Rack::Protection::FrameOptions:0x00007fa6fbcbbea8 @app=#&lt;Rack::Protection::HttpOrigin:0x00007fa6fcb40118 @app=#&lt;Rack::Protection::IPSpoofing:0x00007fa6fcb40550 @app=#&lt;Rack::Protection::JsonCsrf:0x00007fa6fcb406b8 @app=#&lt;Rack::Protection::PathTraversal:0x00007fa6fcb40780 @app=#&lt;Rack::Protection::RemoteToken:0x00007fa6fcb40960 @app=#&lt;Rack::Protection::SessionHijacking:0x00007fa6fcb40aa0 @app=#&lt;Rack::Protection::XSSHeader:0x00007fa6fcb40be0 @app=#&lt;Dinosaur_Bnb:0x00007fa6fca3b128 @default_layout=:layout, @preferred_extension=nil, @app=nil, @template_cache=#&lt;Tilt::Cache:0x00007fa6fca3b0d8 @cache={[:erb, :spaces, {:outvar=&gt;&quot;@_out_buf&quot;, :default_encoding=&gt;&quot;utf-8&quot;}, &quot;&#x2F;Users&#x2F;student&#x2F;Projects&#x2F;Party-Dinosaurs-BnB&#x2F;views&quot;]=&gt;#&lt;Tilt::ERBTemplate:0x00007fa6ff43df98 @options={:outvar=&gt;&quot;@_out_buf&quot;, :trim=&gt;&quot;&lt;&gt;&quot;}, @line=1, @file=&quot;&#x2F;Users&#x2F;student&#x2F;Projects&#x2F;Party-Dinosaurs-BnB&#x2F;views&#x2F;spaces.erb&quot;, @compiled_method={[Dinosaur_Bnb, []]=&gt;#&lt;UnboundMethod: Tilt::CompiledTemplates#__tilt_70177580597340&gt;}, @default_encoding=&quot;utf-8&quot;, @reader=#&lt;Proc:0x00007fa6ff43de08@&#x2F;Users&#x2F;student&#x2F;.rvm&#x2F;gems&#x2F;ruby-2.6.3&#x2F;gems&#x2F;tilt-2.0.10&#x2F;lib&#x2F;tilt&#x2F;template.rb:85 (lambda)&gt;, @data=&quot;&lt;html&gt;\n\n&lt;head&gt;\n  &lt;link href=\&quot;https:&#x2F;&#x2F;fonts.googleapis.com&#x2F;css?family=Neucha&amp;display=swap\&quot; rel=\&quot;stylesheet\&quot;&gt;\n  &lt;link rel=\&quot;styleSheet\&quot; typle=\&quot;text&#x2F;css\&quot; href=\&quot;&lt;%= url(\&quot;&#x2F;styleSheet.css\&quot;) %&gt;\&quot;&gt;\n&lt;&#x2F;head&gt;\n\n&lt;body&gt;\n\n  &lt;form action=\&quot;&#x2F;logout\&quot; method=\&quot;post\&quot;&gt;\n    &lt;button class=\&quot;button\&quot; type=\&quot;submit\&quot;&gt;Logout&lt;&#x2F;button&gt;\n  &lt;&#x2F;form&gt;\n\n  &lt;h1&gt;Welcome to Jurassic Park, &lt;%= @user.name %&gt;&lt;&#x2F;h1&gt;\n\n  &lt;br&gt;\n  &lt;form action=\&quot;&#x2F;create\&quot;&gt;\n    &lt;button class=\&quot;button\&quot;&gt;Create new listing&lt;&#x2F;button&gt;\n  &lt;&#x2F;form&gt;\n  &lt;br&gt;\n  &lt;h1&gt; A list of all spaces: &lt;&#x2F;h1&gt;\n  &lt;% @spaces.each do |space| %&gt;\n  &lt;div&gt;\n    Name: &lt;%= space.name %&gt;\n    &lt;br&gt;\n    Description: &lt;%= space.description %&gt;\n    &lt;br&gt;\n    Price per day: £&lt;%= space.price %&gt;\n    &lt;br&gt;\n    Available from: &lt;%= space.available_from %&gt;\n    &lt;br&gt;\n    Available to: &lt;%= space.available_to %&gt;\n    &lt;br&gt;\n    Listed by: &lt;%= @user.username %&gt;\n  &lt;&#x2F;div&gt;\n  &lt;form action=\&quot;&#x2F;spaces&#x2F;edit\&quot; method=\&quot;post\&quot;&gt;\n    &lt;button class=\&quot;button\&quot; type=\&quot;submit\&quot; name=\&quot;Edit\&quot; value=\&quot;&lt;%= space.id %&gt;\&quot;&gt;Edit&lt;&#x2F;button&gt;\n  &lt;&#x2F;form&gt;\n  &lt;form action=\&quot;&#x2F;spaces&#x2F;request\&quot; method=\&quot;post\&quot;&gt;\n    &lt;button class=\&quot;button\&quot; type=\&quot;submit\&quot; name=\&quot;Request\&quot; value=\&quot;&lt;%= space.id %&gt;\&quot;&gt;Request&lt;&#x2F;button&gt;\n  &lt;&#x2F;form&gt;\n  &lt;% end %&gt;\n\n&lt;&#x2F;body&gt;\n\n&lt;&#x2F;html&gt;\n&quot;, @outvar=&quot;@_out_buf&quot;, @engine=#&lt;ERB:0x00007fa6ff43dca0 @safe_level=nil, @src=&quot;#coding:UTF-8\n@_out_buf = +&#x27;&#x27;; @_out_buf.&lt;&lt; \&quot;&lt;html&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;&lt;head&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;link href=\\\&quot;https:&#x2F;&#x2F;fonts.googleapis.com&#x2F;css?family=Neucha&amp;display=swap\\\&quot; rel=\\\&quot;stylesheet\\\&quot;&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;link rel=\\\&quot;styleSheet\\\&quot; typle=\\\&quot;text&#x2F;css\\\&quot; href=\\\&quot;\&quot;.freeze; @_out_buf.&lt;&lt;(( url(\&quot;&#x2F;styleSheet.css\&quot;) ).to_s); @_out_buf.&lt;&lt; \&quot;\\\&quot;&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;&lt;&#x2F;head&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;&lt;body&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;form action=\\\&quot;&#x2F;logout\\\&quot; method=\\\&quot;post\\\&quot;&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    &lt;button class=\\\&quot;button\\\&quot; type=\\\&quot;submit\\\&quot;&gt;Logout&lt;&#x2F;button&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;&#x2F;form&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;h1&gt;Welcome to Jurassic Park, \&quot;.freeze; @_out_buf.&lt;&lt;(( @user.name ).to_s); @_out_buf.&lt;&lt; \&quot;&lt;&#x2F;h1&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;br&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;form action=\\\&quot;&#x2F;create\\\&quot;&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    &lt;button class=\\\&quot;button\\\&quot;&gt;Create new listing&lt;&#x2F;button&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;&#x2F;form&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;br&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;h1&gt; A list of all spaces: &lt;&#x2F;h1&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  \&quot;.freeze;  @spaces.each do |space| ; @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;div&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    Name: \&quot;.freeze; @_out_buf.&lt;&lt;(( space.name ).to_s); @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    &lt;br&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    Description: \&quot;.freeze; @_out_buf.&lt;&lt;(( space.description ).to_s); @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    &lt;br&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    Price per day: \\xC2\\xA3\&quot;.freeze; @_out_buf.&lt;&lt;(( space.price ).to_s); @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    &lt;br&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    Available from: \&quot;.freeze; @_out_buf.&lt;&lt;(( space.available_from ).to_s); @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    &lt;br&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    Available to: \&quot;.freeze; @_out_buf.&lt;&lt;(( space.available_to ).to_s); @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    &lt;br&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    Listed by: \&quot;.freeze; @_out_buf.&lt;&lt;(( @user.username ).to_s); @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;&#x2F;div&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;form action=\\\&quot;&#x2F;spaces&#x2F;edit\\\&quot; method=\\\&quot;post\\\&quot;&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    &lt;button class=\\\&quot;button\\\&quot; type=\\\&quot;submit\\\&quot; name=\\\&quot;Edit\\\&quot; value=\\\&quot;\&quot;.freeze; @_out_buf.&lt;&lt;(( space.id ).to_s); @_out_buf.&lt;&lt; \&quot;\\\&quot;&gt;Edit&lt;&#x2F;button&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;&#x2F;form&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;form action=\\\&quot;&#x2F;spaces&#x2F;request\\\&quot; method=\\\&quot;post\\\&quot;&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    &lt;button class=\\\&quot;button\\\&quot; type=\\\&quot;submit\\\&quot; name=\\\&quot;Request\\\&quot; value=\\\&quot;\&quot;.freeze; @_out_buf.&lt;&lt;(( space.id ).to_s); @_out_buf.&lt;&lt; \&quot;\\\&quot;&gt;Request&lt;&#x2F;button&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;&#x2F;form&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  \&quot;.freeze;  end ; @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;&lt;&#x2F;body&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;&lt;&#x2F;html&gt;\\n\&quot;.freeze\n; @_out_buf&quot;, @encoding=#&lt;Encoding:UTF-8&gt;, @frozen_string=nil, @filename=nil, @lineno=0&gt;&gt;}&gt;&gt;, @options={:reaction=&gt;:drop_session, :logging=&gt;true, :message=&gt;&quot;Forbidden&quot;, :encryptor=&gt;Digest::SHA1, :session_key=&gt;&quot;rack.session&quot;, :status=&gt;403, :allow_empty_referrer=&gt;true, :report_key=&gt;&quot;protection.failed&quot;, :html_types=&gt;[&quot;text&#x2F;html&quot;, &quot;application&#x2F;xhtml&quot;, &quot;text&#x2F;xml&quot;, &quot;application&#x2F;xml&quot;], :xss_mode=&gt;:block, :nosniff=&gt;true, :img_src=&gt;&quot;&#x27;self&#x27; data:&quot;, :font_src=&gt;&quot;&#x27;self&#x27;&quot;, :without_session=&gt;false}&gt;, @options={:reaction=&gt;:drop_session, :logging=&gt;true, :message=&gt;&quot;Forbidden&quot;, :encryptor=&gt;Digest::SHA1, :session_key=&gt;&quot;rack.session&quot;, :status=&gt;403, :allow_empty_referrer=&gt;true, :report_key=&gt;&quot;protection.failed&quot;, :html_types=&gt;[&quot;text&#x2F;html&quot;, &quot;application&#x2F;xhtml&quot;, &quot;text&#x2F;xml&quot;, &quot;application&#x2F;xml&quot;], :tracking_key=&gt;:tracking, :encrypt_tracking=&gt;true, :track=&gt;[&quot;HTTP_USER_AGENT&quot;], :img_src=&gt;&quot;&#x27;self&#x27; data:&quot;, :font_src=&gt;&quot;&#x27;self&#x27;&quot;, :without_session=&gt;false}&gt;, @options={:reaction=&gt;:drop_session, :logging=&gt;true, :message=&gt;&quot;Forbidden&quot;, :encryptor=&gt;Digest::SHA1, :session_key=&gt;&quot;rack.session&quot;, :status=&gt;403, :allow_empty_referrer=&gt;true, :report_key=&gt;&quot;protection.failed&quot;, :html_types=&gt;[&quot;text&#x2F;html&quot;, &quot;application&#x2F;xhtml&quot;, &quot;text&#x2F;xml&quot;, &quot;application&#x2F;xml&quot;], :authenticity_param=&gt;&quot;authenticity_token&quot;, :allow_if=&gt;nil, :img_src=&gt;&quot;&#x27;self&#x27; data:&quot;, :font_src=&gt;&quot;&#x27;self&#x27;&quot;, :without_session=&gt;false}&gt;, @options={:reaction=&gt;:drop_session, :logging=&gt;true, :message=&gt;&quot;Forbidden&quot;, :encryptor=&gt;Digest::SHA1, :session_key=&gt;&quot;rack.session&quot;, :status=&gt;403, :allow_empty_referrer=&gt;true, :report_key=&gt;&quot;protection.failed&quot;, :html_types=&gt;[&quot;text&#x2F;html&quot;, &quot;application&#x2F;xhtml&quot;, &quot;text&#x2F;xml&quot;, &quot;application&#x2F;xml&quot;], :img_src=&gt;&quot;&#x27;self&#x27; data:&quot;, :font_src=&gt;&quot;&#x27;self&#x27;&quot;, :without_session=&gt;false}&gt;, @options={:reaction=&gt;:drop_session, :logging=&gt;true, :message=&gt;&quot;Forbidden&quot;, :encryptor=&gt;Digest::SHA1, :session_key=&gt;&quot;rack.session&quot;, :status=&gt;403, :allow_empty_referrer=&gt;true, :report_key=&gt;&quot;protection.failed&quot;, :html_types=&gt;[&quot;text&#x2F;html&quot;, &quot;application&#x2F;xhtml&quot;, &quot;text&#x2F;xml&quot;, &quot;application&#x2F;xml&quot;], :allow_if=&gt;nil, :img_src=&gt;&quot;&#x27;self&#x27; data:&quot;, :font_src=&gt;&quot;&#x27;self&#x27;&quot;, :without_session=&gt;false}&gt;, @options={:reaction=&gt;:drop_session, :logging=&gt;true, :message=&gt;&quot;Forbidden&quot;, :encryptor=&gt;Digest::SHA1, :session_key=&gt;&quot;rack.session&quot;, :status=&gt;403, :allow_empty_referrer=&gt;true, :report_key=&gt;&quot;protection.failed&quot;, :html_types=&gt;[&quot;text&#x2F;html&quot;, &quot;application&#x2F;xhtml&quot;, &quot;text&#x2F;xml&quot;, &quot;application&#x2F;xml&quot;], :img_src=&gt;&quot;&#x27;self&#x27; data:&quot;, :font_src=&gt;&quot;&#x27;self&#x27;&quot;, :without_session=&gt;false}&gt;, @options={:reaction=&gt;:drop_session, :logging=&gt;true, :message=&gt;&quot;Forbidden&quot;, :encryptor=&gt;Digest::SHA1, :session_key=&gt;&quot;rack.session&quot;, :status=&gt;403, :allow_empty_referrer=&gt;true, :report_key=&gt;&quot;protection.failed&quot;, :html_types=&gt;[&quot;text&#x2F;html&quot;, &quot;application&#x2F;xhtml&quot;, &quot;text&#x2F;xml&quot;, &quot;application&#x2F;xml&quot;], :allow_if=&gt;nil, :img_src=&gt;&quot;&#x27;self&#x27; data:&quot;, :font_src=&gt;&quot;&#x27;self&#x27;&quot;, :without_session=&gt;false}&gt;, @options={:reaction=&gt;:drop_session, :logging=&gt;true, :message=&gt;&quot;Forbidden&quot;, :encryptor=&gt;Digest::SHA1, :session_key=&gt;&quot;rack.session&quot;, :status=&gt;403, :allow_empty_referrer=&gt;true, :report_key=&gt;&quot;protection.failed&quot;, :html_types=&gt;[&quot;text&#x2F;html&quot;, &quot;application&#x2F;xhtml&quot;, &quot;text&#x2F;xml&quot;, &quot;application&#x2F;xml&quot;], :frame_options=&gt;:sameorigin, :img_src=&gt;&quot;&#x27;self&#x27; data:&quot;, :font_src=&gt;&quot;&#x27;self&#x27;&quot;, :without_session=&gt;false}, @frame_options=&quot;SAMEORIGIN&quot;&gt;, @default_options={:path=&gt;&quot;&#x2F;&quot;, :domain=&gt;nil, :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :defer=&gt;false, :renew=&gt;false, :sidbits=&gt;128, :secure_random=&gt;SecureRandom, :secret=&gt;&quot;d12876950f35dc7b8283955b5b2098a0b6013ebad0c448eb624489efc1ad80db3d924ba9603c0ca7c9526ccc08c52931e3acc1871ad59d67dffb77e561dff1e8&quot;, :coder=&gt;#&lt;Rack::Session::Cookie::Base64::Marshal:0x00007fa6fbcbbc28&gt;}, @key=&quot;rack.session&quot;, @cookie_only=true, @sidbits=128, @sid_secure=SecureRandom, @sid_length=32&gt;&gt;</div></td>
+           <td class="code"><div>#&lt;Rack::NullLogger:0x00007fb8c705cee0 @app=#&lt;Rack::Session::Cookie:0x00007fb8c705d0e8 @secrets=[&quot;def31b0e6b1b538e5bc1d4c32d57f9770617edfcef64b9243cc47693c5ccc3fc593a21c122b5c5167c4187277477d86d69f80f25b292f16787d454de1979a782&quot;], @hmac=OpenSSL::Digest::SHA1, @coder=#&lt;Rack::Session::Cookie::Base64::Marshal:0x00007fb8c705cfd0&gt;, @app=#&lt;Rack::Protection::FrameOptions:0x00007fb8c705d5e8 @app=#&lt;Rack::Protection::HttpOrigin:0x00007fb8c705d700 @app=#&lt;Rack::Protection::IPSpoofing:0x00007fb8c705d7f0 @app=#&lt;Rack::Protection::JsonCsrf:0x00007fb8c705da20 @app=#&lt;Rack::Protection::PathTraversal:0x00007fb8c705db38 @app=#&lt;Rack::Protection::RemoteToken:0x00007fb8c705dcf0 @app=#&lt;Rack::Protection::SessionHijacking:0x00007fb8c705de58 @app=#&lt;Rack::Protection::XSSHeader:0x00007fb8c705e060 @app=#&lt;Dinosaur_Bnb:0x00007fb8c5493b28 @default_layout=:layout, @preferred_extension=nil, @app=nil, @template_cache=#&lt;Tilt::Cache:0x00007fb8c5493ab0 @cache={[:erb, :spaces, {:outvar=&gt;&quot;@_out_buf&quot;, :default_encoding=&gt;&quot;utf-8&quot;}, &quot;&#x2F;Users&#x2F;student&#x2F;Projects&#x2F;Party-Dinosaurs-BnB&#x2F;views&quot;]=&gt;#&lt;Tilt::ERBTemplate:0x00007fb8c8d9d0e0 @options={:outvar=&gt;&quot;@_out_buf&quot;, :trim=&gt;&quot;&lt;&gt;&quot;}, @line=1, @file=&quot;&#x2F;Users&#x2F;student&#x2F;Projects&#x2F;Party-Dinosaurs-BnB&#x2F;views&#x2F;spaces.erb&quot;, @compiled_method={[Dinosaur_Bnb, []]=&gt;#&lt;UnboundMethod: Tilt::CompiledTemplates#__tilt_70215778115660&gt;}, @default_encoding=&quot;utf-8&quot;, @reader=#&lt;Proc:0x00007fb8c8d9cfa0@&#x2F;Users&#x2F;student&#x2F;.rvm&#x2F;gems&#x2F;ruby-2.6.3&#x2F;gems&#x2F;tilt-2.0.10&#x2F;lib&#x2F;tilt&#x2F;template.rb:85 (lambda)&gt;, @data=&quot;&lt;html&gt;\n\n&lt;head&gt;\n  &lt;link href=\&quot;https:&#x2F;&#x2F;fonts.googleapis.com&#x2F;css?family=Neucha&amp;display=swap\&quot; rel=\&quot;stylesheet\&quot;&gt;\n  &lt;link rel=\&quot;styleSheet\&quot; typle=\&quot;text&#x2F;css\&quot; href=\&quot;&lt;%= url(\&quot;&#x2F;styleSheet.css\&quot;) %&gt;\&quot;&gt;\n&lt;&#x2F;head&gt;\n\n&lt;body&gt;\n\n  &lt;form action=\&quot;&#x2F;logout\&quot; method=\&quot;post\&quot;&gt;\n    &lt;button class=\&quot;button\&quot; type=\&quot;submit\&quot;&gt;Logout&lt;&#x2F;button&gt;\n  &lt;&#x2F;form&gt;\n\n  &lt;h1&gt;Welcome to Jurassic Park, &lt;%= @user.name %&gt;&lt;&#x2F;h1&gt;\n\n  &lt;br&gt;\n  &lt;form action=\&quot;&#x2F;create\&quot;&gt;\n    &lt;button class=\&quot;button\&quot;&gt;Create new listing&lt;&#x2F;button&gt;\n  &lt;&#x2F;form&gt;\n  &lt;br&gt;\n  &lt;h1&gt; A list of all spaces: &lt;&#x2F;h1&gt;\n  &lt;% @spaces.each do |space| %&gt;\n  &lt;div&gt;\n    Name: &lt;%= space.name %&gt;\n    &lt;br&gt;\n    Description: &lt;%= space.description %&gt;\n    &lt;br&gt;\n    Price per day: £&lt;%= space.price %&gt;\n    &lt;br&gt;\n    Available from: &lt;%= space.available_from %&gt;\n    &lt;br&gt;\n    Available to: &lt;%= space.available_to %&gt;\n    &lt;br&gt;\n    Listed by: &lt;%= @user.username %&gt;\n  &lt;&#x2F;div&gt;\n  &lt;form action=\&quot;&#x2F;spaces&#x2F;edit\&quot; method=\&quot;post\&quot;&gt;\n    &lt;button class=\&quot;button\&quot; type=\&quot;submit\&quot; name=\&quot;Edit\&quot; value=\&quot;&lt;%= space.id %&gt;\&quot;&gt;Edit&lt;&#x2F;button&gt;\n  &lt;&#x2F;form&gt;\n  &lt;form action=\&quot;&#x2F;spaces&#x2F;request\&quot; method=\&quot;post\&quot;&gt;\n    &lt;button class=\&quot;button\&quot; type=\&quot;submit\&quot; name=\&quot;Request\&quot; value=\&quot;&lt;%= space.id %&gt;\&quot;&gt;Request&lt;&#x2F;button&gt;\n  &lt;&#x2F;form&gt;\n  &lt;% end %&gt;\n\n&lt;&#x2F;body&gt;\n\n&lt;&#x2F;html&gt;\n&quot;, @outvar=&quot;@_out_buf&quot;, @engine=#&lt;ERB:0x00007fb8c8d9ce88 @safe_level=nil, @src=&quot;#coding:UTF-8\n@_out_buf = +&#x27;&#x27;; @_out_buf.&lt;&lt; \&quot;&lt;html&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;&lt;head&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;link href=\\\&quot;https:&#x2F;&#x2F;fonts.googleapis.com&#x2F;css?family=Neucha&amp;display=swap\\\&quot; rel=\\\&quot;stylesheet\\\&quot;&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;link rel=\\\&quot;styleSheet\\\&quot; typle=\\\&quot;text&#x2F;css\\\&quot; href=\\\&quot;\&quot;.freeze; @_out_buf.&lt;&lt;(( url(\&quot;&#x2F;styleSheet.css\&quot;) ).to_s); @_out_buf.&lt;&lt; \&quot;\\\&quot;&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;&lt;&#x2F;head&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;&lt;body&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;form action=\\\&quot;&#x2F;logout\\\&quot; method=\\\&quot;post\\\&quot;&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    &lt;button class=\\\&quot;button\\\&quot; type=\\\&quot;submit\\\&quot;&gt;Logout&lt;&#x2F;button&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;&#x2F;form&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;h1&gt;Welcome to Jurassic Park, \&quot;.freeze; @_out_buf.&lt;&lt;(( @user.name ).to_s); @_out_buf.&lt;&lt; \&quot;&lt;&#x2F;h1&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;br&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;form action=\\\&quot;&#x2F;create\\\&quot;&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    &lt;button class=\\\&quot;button\\\&quot;&gt;Create new listing&lt;&#x2F;button&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;&#x2F;form&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;br&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;h1&gt; A list of all spaces: &lt;&#x2F;h1&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  \&quot;.freeze;  @spaces.each do |space| ; @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;div&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    Name: \&quot;.freeze; @_out_buf.&lt;&lt;(( space.name ).to_s); @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    &lt;br&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    Description: \&quot;.freeze; @_out_buf.&lt;&lt;(( space.description ).to_s); @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    &lt;br&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    Price per day: \\xC2\\xA3\&quot;.freeze; @_out_buf.&lt;&lt;(( space.price ).to_s); @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    &lt;br&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    Available from: \&quot;.freeze; @_out_buf.&lt;&lt;(( space.available_from ).to_s); @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    &lt;br&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    Available to: \&quot;.freeze; @_out_buf.&lt;&lt;(( space.available_to ).to_s); @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    &lt;br&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    Listed by: \&quot;.freeze; @_out_buf.&lt;&lt;(( @user.username ).to_s); @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;&#x2F;div&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;form action=\\\&quot;&#x2F;spaces&#x2F;edit\\\&quot; method=\\\&quot;post\\\&quot;&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    &lt;button class=\\\&quot;button\\\&quot; type=\\\&quot;submit\\\&quot; name=\\\&quot;Edit\\\&quot; value=\\\&quot;\&quot;.freeze; @_out_buf.&lt;&lt;(( space.id ).to_s); @_out_buf.&lt;&lt; \&quot;\\\&quot;&gt;Edit&lt;&#x2F;button&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;&#x2F;form&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;form action=\\\&quot;&#x2F;spaces&#x2F;request\\\&quot; method=\\\&quot;post\\\&quot;&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;    &lt;button class=\\\&quot;button\\\&quot; type=\\\&quot;submit\\\&quot; name=\\\&quot;Request\\\&quot; value=\\\&quot;\&quot;.freeze; @_out_buf.&lt;&lt;(( space.id ).to_s); @_out_buf.&lt;&lt; \&quot;\\\&quot;&gt;Request&lt;&#x2F;button&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  &lt;&#x2F;form&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;  \&quot;.freeze;  end ; @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;&lt;&#x2F;body&gt;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;\\n\&quot;.freeze\n; @_out_buf.&lt;&lt; \&quot;&lt;&#x2F;html&gt;\\n\&quot;.freeze\n; @_out_buf&quot;, @encoding=#&lt;Encoding:UTF-8&gt;, @frozen_string=nil, @filename=nil, @lineno=0&gt;&gt;}&gt;&gt;, @options={:reaction=&gt;:drop_session, :logging=&gt;true, :message=&gt;&quot;Forbidden&quot;, :encryptor=&gt;Digest::SHA1, :session_key=&gt;&quot;rack.session&quot;, :status=&gt;403, :allow_empty_referrer=&gt;true, :report_key=&gt;&quot;protection.failed&quot;, :html_types=&gt;[&quot;text&#x2F;html&quot;, &quot;application&#x2F;xhtml&quot;, &quot;text&#x2F;xml&quot;, &quot;application&#x2F;xml&quot;], :xss_mode=&gt;:block, :nosniff=&gt;true, :img_src=&gt;&quot;&#x27;self&#x27; data:&quot;, :font_src=&gt;&quot;&#x27;self&#x27;&quot;, :without_session=&gt;false}&gt;, @options={:reaction=&gt;:drop_session, :logging=&gt;true, :message=&gt;&quot;Forbidden&quot;, :encryptor=&gt;Digest::SHA1, :session_key=&gt;&quot;rack.session&quot;, :status=&gt;403, :allow_empty_referrer=&gt;true, :report_key=&gt;&quot;protection.failed&quot;, :html_types=&gt;[&quot;text&#x2F;html&quot;, &quot;application&#x2F;xhtml&quot;, &quot;text&#x2F;xml&quot;, &quot;application&#x2F;xml&quot;], :tracking_key=&gt;:tracking, :encrypt_tracking=&gt;true, :track=&gt;[&quot;HTTP_USER_AGENT&quot;], :img_src=&gt;&quot;&#x27;self&#x27; data:&quot;, :font_src=&gt;&quot;&#x27;self&#x27;&quot;, :without_session=&gt;false}&gt;, @options={:reaction=&gt;:drop_session, :logging=&gt;true, :message=&gt;&quot;Forbidden&quot;, :encryptor=&gt;Digest::SHA1, :session_key=&gt;&quot;rack.session&quot;, :status=&gt;403, :allow_empty_referrer=&gt;true, :report_key=&gt;&quot;protection.failed&quot;, :html_types=&gt;[&quot;text&#x2F;html&quot;, &quot;application&#x2F;xhtml&quot;, &quot;text&#x2F;xml&quot;, &quot;application&#x2F;xml&quot;], :authenticity_param=&gt;&quot;authenticity_token&quot;, :allow_if=&gt;nil, :img_src=&gt;&quot;&#x27;self&#x27; data:&quot;, :font_src=&gt;&quot;&#x27;self&#x27;&quot;, :without_session=&gt;false}&gt;, @options={:reaction=&gt;:drop_session, :logging=&gt;true, :message=&gt;&quot;Forbidden&quot;, :encryptor=&gt;Digest::SHA1, :session_key=&gt;&quot;rack.session&quot;, :status=&gt;403, :allow_empty_referrer=&gt;true, :report_key=&gt;&quot;protection.failed&quot;, :html_types=&gt;[&quot;text&#x2F;html&quot;, &quot;application&#x2F;xhtml&quot;, &quot;text&#x2F;xml&quot;, &quot;application&#x2F;xml&quot;], :img_src=&gt;&quot;&#x27;self&#x27; data:&quot;, :font_src=&gt;&quot;&#x27;self&#x27;&quot;, :without_session=&gt;false}&gt;, @options={:reaction=&gt;:drop_session, :logging=&gt;true, :message=&gt;&quot;Forbidden&quot;, :encryptor=&gt;Digest::SHA1, :session_key=&gt;&quot;rack.session&quot;, :status=&gt;403, :allow_empty_referrer=&gt;true, :report_key=&gt;&quot;protection.failed&quot;, :html_types=&gt;[&quot;text&#x2F;html&quot;, &quot;application&#x2F;xhtml&quot;, &quot;text&#x2F;xml&quot;, &quot;application&#x2F;xml&quot;], :allow_if=&gt;nil, :img_src=&gt;&quot;&#x27;self&#x27; data:&quot;, :font_src=&gt;&quot;&#x27;self&#x27;&quot;, :without_session=&gt;false}&gt;, @options={:reaction=&gt;:drop_session, :logging=&gt;true, :message=&gt;&quot;Forbidden&quot;, :encryptor=&gt;Digest::SHA1, :session_key=&gt;&quot;rack.session&quot;, :status=&gt;403, :allow_empty_referrer=&gt;true, :report_key=&gt;&quot;protection.failed&quot;, :html_types=&gt;[&quot;text&#x2F;html&quot;, &quot;application&#x2F;xhtml&quot;, &quot;text&#x2F;xml&quot;, &quot;application&#x2F;xml&quot;], :img_src=&gt;&quot;&#x27;self&#x27; data:&quot;, :font_src=&gt;&quot;&#x27;self&#x27;&quot;, :without_session=&gt;false}&gt;, @options={:reaction=&gt;:drop_session, :logging=&gt;true, :message=&gt;&quot;Forbidden&quot;, :encryptor=&gt;Digest::SHA1, :session_key=&gt;&quot;rack.session&quot;, :status=&gt;403, :allow_empty_referrer=&gt;true, :report_key=&gt;&quot;protection.failed&quot;, :html_types=&gt;[&quot;text&#x2F;html&quot;, &quot;application&#x2F;xhtml&quot;, &quot;text&#x2F;xml&quot;, &quot;application&#x2F;xml&quot;], :allow_if=&gt;nil, :img_src=&gt;&quot;&#x27;self&#x27; data:&quot;, :font_src=&gt;&quot;&#x27;self&#x27;&quot;, :without_session=&gt;false}&gt;, @options={:reaction=&gt;:drop_session, :logging=&gt;true, :message=&gt;&quot;Forbidden&quot;, :encryptor=&gt;Digest::SHA1, :session_key=&gt;&quot;rack.session&quot;, :status=&gt;403, :allow_empty_referrer=&gt;true, :report_key=&gt;&quot;protection.failed&quot;, :html_types=&gt;[&quot;text&#x2F;html&quot;, &quot;application&#x2F;xhtml&quot;, &quot;text&#x2F;xml&quot;, &quot;application&#x2F;xml&quot;], :frame_options=&gt;:sameorigin, :img_src=&gt;&quot;&#x27;self&#x27; data:&quot;, :font_src=&gt;&quot;&#x27;self&#x27;&quot;, :without_session=&gt;false}, @frame_options=&quot;SAMEORIGIN&quot;&gt;, @default_options={:path=&gt;&quot;&#x2F;&quot;, :domain=&gt;nil, :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :defer=&gt;false, :renew=&gt;false, :sidbits=&gt;128, :secure_random=&gt;SecureRandom, :secret=&gt;&quot;def31b0e6b1b538e5bc1d4c32d57f9770617edfcef64b9243cc47693c5ccc3fc593a21c122b5c5167c4187277477d86d69f80f25b292f16787d454de1979a782&quot;, :coder=&gt;#&lt;Rack::Session::Cookie::Base64::Marshal:0x00007fb8c705cfd0&gt;}, @key=&quot;rack.session&quot;, @cookie_only=true, @sidbits=128, @sid_secure=SecureRandom, @sid_length=32&gt;&gt;</div></td>
          </tr>
          
          <tr>
@@ -6881,12 +7689,12 @@
          
          <tr>
            <td>rack.request.cookie_hash</td>
-           <td class="code"><div>{&quot;rack.session&quot;=&gt;&quot;BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiRTAzN2M4MzdjOWViNTQ4YWQwNDRk\nMDEyNmFiZTUwYmIxYWEzNWFhOGY4ZTVkNjljZDY3NzY3ODlkNjdhYjQzNWIG\nOwBGSSIJY3NyZgY7AEZJIjErQVVIVjJoL3N0dHZhZkVtSjlrZFRvUENRL0k4\nMkw5R2xES1piaXpFeGJVPQY7AEZJIg10cmFja2luZwY7AEZ7BkkiFEhUVFBf\nVVNFUl9BR0VOVAY7AFRJIi1kYTM5YTNlZTVlNmI0YjBkMzI1NWJmZWY5NTYw\nMTg5MGFmZDgwNzA5BjsARg==\n--269ee84357cea66d388c8c2685ab816c9619caa8&quot;}</div></td>
+           <td class="code"><div>{&quot;rack.session&quot;=&gt;&quot;BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiRTcxOTdhMDAyM2FkNDQ0MmQ4ZWQz\nY2M2ODQyM2E3ZmRmNTdmY2FhZjUzZWRhZWIwN2NiYTg1MjIzMDc5MThhOTYG\nOwBGSSIJY3NyZgY7AEZJIjFhU1ZmRlpZWGhtWkJLN0p2eFp5NFdRMVJXejRj\nb1dNZFprckpDZytUTjE0PQY7AEZJIg10cmFja2luZwY7AEZ7BkkiFEhUVFBf\nVVNFUl9BR0VOVAY7AFRJIi1kYTM5YTNlZTVlNmI0YjBkMzI1NWJmZWY5NTYw\nMTg5MGFmZDgwNzA5BjsARkkiC3VzZXJJRAY7AFRpEw==\n--0c5d582c5deec133b808e270b1c9ae9d9c82f1d2&quot;}</div></td>
          </tr>
          
          <tr>
            <td>rack.request.cookie_string</td>
-           <td class="code"><div>rack.session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiRTAzN2M4MzdjOWViNTQ4YWQwNDRk%0AMDEyNmFiZTUwYmIxYWEzNWFhOGY4ZTVkNjljZDY3NzY3ODlkNjdhYjQzNWIG%0AOwBGSSIJY3NyZgY7AEZJIjErQVVIVjJoL3N0dHZhZkVtSjlrZFRvUENRL0k4%0AMkw5R2xES1piaXpFeGJVPQY7AEZJIg10cmFja2luZwY7AEZ7BkkiFEhUVFBf%0AVVNFUl9BR0VOVAY7AFRJIi1kYTM5YTNlZTVlNmI0YjBkMzI1NWJmZWY5NTYw%0AMTg5MGFmZDgwNzA5BjsARg%3D%3D%0A--269ee84357cea66d388c8c2685ab816c9619caa8</div></td>
+           <td class="code"><div>rack.session=BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiRTcxOTdhMDAyM2FkNDQ0MmQ4ZWQz%0AY2M2ODQyM2E3ZmRmNTdmY2FhZjUzZWRhZWIwN2NiYTg1MjIzMDc5MThhOTYG%0AOwBGSSIJY3NyZgY7AEZJIjFhU1ZmRlpZWGhtWkJLN0p2eFp5NFdRMVJXejRj%0Ab1dNZFprckpDZytUTjE0PQY7AEZJIg10cmFja2luZwY7AEZ7BkkiFEhUVFBf%0AVVNFUl9BR0VOVAY7AFRJIi1kYTM5YTNlZTVlNmI0YjBkMzI1NWJmZWY5NTYw%0AMTg5MGFmZDgwNzA5BjsARkkiC3VzZXJJRAY7AFRpEw%3D%3D%0A--0c5d582c5deec133b808e270b1c9ae9d9c82f1d2</div></td>
          </tr>
          
          <tr>
@@ -6906,17 +7714,17 @@
          
          <tr>
            <td>rack.session</td>
-           <td class="code"><div>{&quot;session_id&quot;=&gt;&quot;037c837c9eb548ad044d0126abe50bb1aa35aa8f8e5d69cd6776789d67ab435b&quot;, &quot;csrf&quot;=&gt;&quot;+AUHV2h&#x2F;sttvafEmJ9kdToPCQ&#x2F;I82L9GlDKZbizExbU=&quot;, &quot;tracking&quot;=&gt;{&quot;HTTP_USER_AGENT&quot;=&gt;&quot;da39a3ee5e6b4b0d3255bfef95601890afd80709&quot;}}</div></td>
+           <td class="code"><div>{&quot;session_id&quot;=&gt;&quot;7197a0023ad4442d8ed3cc68423a7fdf57fcaaf53edaeb07cba8522307918a96&quot;, &quot;csrf&quot;=&gt;&quot;aSVfFZYXhmZBK7JvxZy4WQ1RWz4coWMdZkrJCg+TN14=&quot;, &quot;tracking&quot;=&gt;{&quot;HTTP_USER_AGENT&quot;=&gt;&quot;da39a3ee5e6b4b0d3255bfef95601890afd80709&quot;}, &quot;userID&quot;=&gt;14}</div></td>
          </tr>
          
          <tr>
            <td>rack.session.options</td>
-           <td class="code"><div>{:path=&gt;&quot;&#x2F;&quot;, :domain=&gt;nil, :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :defer=&gt;false, :renew=&gt;false, :sidbits=&gt;128, :secure_random=&gt;SecureRandom, :secret=&gt;&quot;d12876950f35dc7b8283955b5b2098a0b6013ebad0c448eb624489efc1ad80db3d924ba9603c0ca7c9526ccc08c52931e3acc1871ad59d67dffb77e561dff1e8&quot;, :coder=&gt;#&lt;Rack::Session::Cookie::Base64::Marshal:0x00007fa6fbcbbc28&gt;}</div></td>
+           <td class="code"><div>{:path=&gt;&quot;&#x2F;&quot;, :domain=&gt;nil, :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :defer=&gt;false, :renew=&gt;false, :sidbits=&gt;128, :secure_random=&gt;SecureRandom, :secret=&gt;&quot;def31b0e6b1b538e5bc1d4c32d57f9770617edfcef64b9243cc47693c5ccc3fc593a21c122b5c5167c4187277477d86d69f80f25b292f16787d454de1979a782&quot;, :coder=&gt;#&lt;Rack::Session::Cookie::Base64::Marshal:0x00007fb8c705cfd0&gt;}</div></td>
          </tr>
          
          <tr>
            <td>rack.session.unpacked_cookie_data</td>
-           <td class="code"><div>{&quot;session_id&quot;=&gt;&quot;037c837c9eb548ad044d0126abe50bb1aa35aa8f8e5d69cd6776789d67ab435b&quot;, &quot;csrf&quot;=&gt;&quot;+AUHV2h&#x2F;sttvafEmJ9kdToPCQ&#x2F;I82L9GlDKZbizExbU=&quot;, &quot;tracking&quot;=&gt;{&quot;HTTP_USER_AGENT&quot;=&gt;&quot;da39a3ee5e6b4b0d3255bfef95601890afd80709&quot;}}</div></td>
+           <td class="code"><div>{&quot;session_id&quot;=&gt;&quot;7197a0023ad4442d8ed3cc68423a7fdf57fcaaf53edaeb07cba8522307918a96&quot;, &quot;csrf&quot;=&gt;&quot;aSVfFZYXhmZBK7JvxZy4WQ1RWz4coWMdZkrJCg+TN14=&quot;, &quot;tracking&quot;=&gt;{&quot;HTTP_USER_AGENT&quot;=&gt;&quot;da39a3ee5e6b4b0d3255bfef95601890afd80709&quot;}, &quot;userID&quot;=&gt;14}</div></td>
          </tr>
          
          <tr>
@@ -6936,7 +7744,7 @@
          
          <tr>
            <td>sinatra.accept</td>
-           <td class="code"><div>[#&lt;Sinatra::Request::AcceptEntry:0x00007fa6ff454c48 @entry=&quot;*&#x2F;*&quot;, @type=&quot;*&#x2F;*&quot;, @params={}, @q=1.0&gt;]</div></td>
+           <td class="code"><div>[#&lt;Sinatra::Request::AcceptEntry:0x00007fb8c8dbf758 @entry=&quot;*&#x2F;*&quot;, @type=&quot;*&#x2F;*&quot;, @params={}, @q=1.0&gt;]</div></td>
          </tr>
          
          <tr>

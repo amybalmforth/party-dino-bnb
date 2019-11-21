@@ -86,8 +86,8 @@ class Space
   property :name,               String
   property :description,        String
   property :price,              Integer
-  property :available_from,     DateTime
-  property :available_to,       DateTime
+  property :available_from,     Date
+  property :available_to,       Date
   property :created_by,         String
   property :requested_by,       String
   property :booked_by,          String
