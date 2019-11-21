@@ -11,4 +11,11 @@ feature 'Viewing Spaces' do
     expect(page).to have_content "home" && "urban area" && "£50" && "November 25 2019" && "November 18 2019"
     expect(page).to have_content "house" && "rural area" && "£40" && "November 20 2019" && "November 30 2019"
   end
+
+  scenario 'user can log out' do
+    signup_and_in
+    click_button('Logout')
+    expect(page).to have_content("Welcome to Dinosaur BNB!")
+  end
+
 end
