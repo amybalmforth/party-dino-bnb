@@ -17,13 +17,13 @@ class Dinosaur_Bnb < Sinatra::Base
   end
 
   post '/new-space' do
-    Spaces.create(name: params[:property_name], description: params[:description], price: params[:price_per_night], available_from: params[:available_from], available_to: params[:available_to])
+    Space.create(name: params[:property_name], description: params[:description], price: params[:price_per_night], available_from: params[:available_from], available_to: params[:available_to])
     redirect '/spaces'
   end
 
   get '/spaces' do
     @user = session['user']
-    @spaces = Spaces.all.reverse
+    @spaces = Space.all.reverse
     erb :spaces
   end
 
@@ -32,7 +32,7 @@ class Dinosaur_Bnb < Sinatra::Base
   end
 
   post '/signup' do
-    session['user'] = Users.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+    session['user'] = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     redirect '/spaces'
   end
 
@@ -41,7 +41,7 @@ class Dinosaur_Bnb < Sinatra::Base
   end
 
   post '/login' do
-    user = Users.find('username', params[:username])
+    user = User.find('username', params[:username])
     redirect '/signup' if user == nil
     redirect '/login' if user.password != params[:password]
     session['user'] = user
@@ -49,7 +49,7 @@ class Dinosaur_Bnb < Sinatra::Base
   end
 
   post '/spaces/edit' do
-    session['edit_space'] = Spaces.find('id', params[:Edit])
+    session['edit_space'] = Space.find('id', params[:Edit])
     redirect '/spaces/edit'
   end
 
@@ -59,12 +59,12 @@ class Dinosaur_Bnb < Sinatra::Base
   end
 
   post '/spaces/update' do
-    Spaces.update(id: session['edit_space'].id, name: params[:name], description: params[:description], price: params[:price], available_from: params[:available_from], available_to: params[:available_to])
+    Space.update(id: session['edit_space'].id, name: params[:name], description: params[:description], price: params[:price], available_from: params[:available_from], available_to: params[:available_to])
     redirect '/spaces'
   end
 
   post '/spaces/request' do
-    session['requested_space'] = Spaces.find('id', params[:Request])
+    session['requested_space'] = Space.find('id', params[:Request])
     redirect '/spaces/request'
   end
 

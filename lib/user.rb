@@ -1,4 +1,4 @@
-class Users
+class User
 
   attr_reader :id, :name, :username, :email, :password
 
@@ -18,7 +18,7 @@ class Users
     end
 
     result = conn.exec("INSERT INTO users (name, username, email, password) VALUES('#{name}', '#{username}', '#{email}', '#{password}') RETURNING name, username, email, password")
-    Users.new(id: result[0]['id'], name: result[0]["name"], username: result[0]["username"], email: result[0]["email"], password: result[0]["password"])
+    User.new(id: result[0]['id'], name: result[0]["name"], username: result[0]["username"], email: result[0]["email"], password: result[0]["password"])
   end
 
   def self.find(column, value)
@@ -27,10 +27,10 @@ class Users
     else
       conn = PG.connect(dbname: 'party_dino_bnb')
     end
-  
+
     result = conn.exec("SELECT * FROM users WHERE #{column} = '#{value}'")
     res = result.map do |row|
-      Users.new(id: row["id"], name: row["name"], username: row["username"], email: row["email"], password: row["password"])
+      User.new(id: row["id"], name: row["name"], username: row["username"], email: row["email"], password: row["password"])
     end
     search_result = res[0]
   end
