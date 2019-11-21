@@ -9,7 +9,7 @@
 
 List your property
 
-<form action="/new-space" method="post">
+<form class="property" action="/new-space" method="post">
   <label for="property_name">Property Name</label>
   <input type="text" name="property_name"><br>
   <label for="description">Description</label>
@@ -21,6 +21,10 @@ List your property
   <label for="available_to">Available to</label>
   <input type="date" name="available_to"><br>
   <button class="button">Submit</button>
+</form>
+
+<form id="back" action="/spaces" method="get">
+  <button class="button" type="submit" name="Back">Back</button>
 </form>
 
 </body>
