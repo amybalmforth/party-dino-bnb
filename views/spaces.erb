@@ -30,6 +30,8 @@
     Available from: <%= space.available_from %>
     <br>
     Available to: <%= space.available_to %>
+    <br>
+    Listed by: <%= @user.username %>
   </div>
   <form action="/spaces/edit" method="post">
     <button class="button" type="submit" name="Edit" value="<%= space.id %>">Edit</button>

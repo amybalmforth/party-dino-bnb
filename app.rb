@@ -17,7 +17,7 @@ class Dinosaur_Bnb < Sinatra::Base
   end
 
   post '/new-space' do
-    Spaces.create(name: params[:property_name], description: params[:description], price: params[:price_per_night], available_from: params[:available_from], available_to: params[:available_to])
+    Spaces.create(name: params[:property_name], description: params[:description], price: params[:price_per_night], available_from: params[:available_from], available_to: params[:available_to], created_by: session["user"].id)
     redirect '/spaces'
   end
 
