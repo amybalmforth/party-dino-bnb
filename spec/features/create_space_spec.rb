@@ -1,3 +1,5 @@
+require 'web_helpers'
+
 feature "creating a space" do
   scenario "welcomes the user" do
     visit('/')
@@ -50,6 +52,4 @@ feature "creating a space" do
     click_button('Back')
     expect(page).to have_content('Welcome to Jurassic Park')
   end
-
-
 end

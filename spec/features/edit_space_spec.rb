@@ -1,4 +1,4 @@
-require 'pg'
+require 'web_helpers'
 
 feature 'edit spaces' do
 
@@ -6,11 +6,11 @@ feature 'edit spaces' do
 
   before(:each) do
     allow(user).to receive(:id).and_return(1)
-    space = Spaces.create(name: 'home', description: 'urban area', price: '£50', available_from: 'November 18 2019', available_to: 'November 25 2019', created_by: user.id)
+    space = Space.create(name: 'home', description: 'urban area', price: '£50', available_from: 'November 18 2019', available_to: 'November 25 2019', created_by: user.id)
   end
 
   scenario 'user can edit a space' do
-    conn = PG.connect(dbname: 'party_dino_bnb_test')
+    # conn = PG.connect(dbname: 'party_dino_bnb_test')
     visit('/signup')
     fill_in 'name', with: 'John Smith'
     fill_in 'username', with: 'JohnSmith'
