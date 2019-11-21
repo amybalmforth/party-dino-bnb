@@ -5,7 +5,12 @@ require_relative 'lib/user'
 class Dinosaur_Bnb < Sinatra::Base
   enable :sessions
 
-  DataMapper.setup :default, "postgres://#{ENV["USER"]}@localhost/party_dino_bnb"
+
+  if ENV['ENVIRONMENT'] == 'test'
+    DataMapper.setup :default, "postgres://#{ENV["USER"]}@localhost/party_dino_bnb_test"
+  else
+    DataMapper.setup :default, "postgres://#{ENV["USER"]}@localhost/party_dino_bnb"
+  end
   DataMapper.finalize
   DataMapper.auto_migrate!
 
@@ -24,7 +29,8 @@ class Dinosaur_Bnb < Sinatra::Base
   end
 
   get '/spaces' do
-    @user = session['userUSERNAME']
+    user = User.first(:id => session['userID'])
+    @user = user
     @spaces = Space.all.reverse
     erb :spaces
   end

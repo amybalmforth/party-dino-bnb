@@ -32,7 +32,7 @@ feature "creating a space" do
 
   scenario "property owner can fill in information and then view it on the listings page" do
     signup_and_in
-    visit ('/create')
+    click_button ('create_new_listing')
     fill_in 'property_name', with: 'Dino mansion'
     fill_in 'description', with: 'A beautiful party mansion for all your party dinosaur needs'
     fill_in 'price_per_night', with: '£100'
