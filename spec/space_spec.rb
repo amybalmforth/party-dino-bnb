@@ -20,7 +20,8 @@ describe 'Viewing Spaces' do
   end
 
   it 'can update a specific space' do
-    updated_space = Spaces.testupdate(name: 'bungalow', description: 'urban area', price: '£50', available_from: 'November 18 2019', available_to: 'November 25 2019')
+    Spaces.update(id: '1', name: 'bungalow', description: 'urban area', price: '£50', available_from: 'November 18 2019', available_to: 'November 25 2019')
+    updated_space = Spaces.find('name', 'bungalow')
     expect(updated_space.name).to eq 'bungalow'
   end
 end
