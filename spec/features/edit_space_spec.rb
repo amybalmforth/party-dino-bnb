@@ -29,4 +29,12 @@ feature 'edit spaces' do
   #   click_button 'update'
   #   expect(page).to have_content('bungalow')
   # end
+
+  scenario 'user can click the back button to go to the listings page' do
+    signup_and_in
+    click_button('Edit')
+    click_button('Back')
+    expect(page).to have_content('Welcome to Jurassic Park')
+  end
+
 end
