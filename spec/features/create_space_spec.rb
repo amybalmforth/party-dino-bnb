@@ -5,19 +5,15 @@ feature "creating a space" do
   end
 
   scenario "can click through to list properties page" do
-    visit('/signup')
-    fill_in 'name', with: 'John Smith'
-    fill_in 'username', with: 'JohnSmith'
-    fill_in 'email', with: 'jsmith@gmail.com'
-    fill_in 'password', with: 'backseatfreestyle'
-    click_button('submit')
+    signup_and_in
     click_button('Create new listing')
     expect(page).to have_content('List your property')
   end
 
   scenario "can see a form for entering property details" do
+    signup_and_in
     visit('/create')
-      within('form') {
+      within('form.property') {
         expect(page).to have_content('Property Name')
         expect(page).to have_content('Description')
         expect(page).to have_content('Price per night')
@@ -27,13 +23,13 @@ feature "creating a space" do
   end
 
   scenario "property owner can click submit to list a property" do
+    signup_and_in
     visit('/create')
-    within('form') {
-      expect(page).to have_button('Submit')
-    }
+    expect(page).to have_button('Submit')
   end
 
   scenario "property owner can fill in information and then view it on the listings page" do
+    signup_and_in
     visit ('/create')
     fill_in 'property_name', with: 'Dino mansion'
     fill_in 'description', with: 'A beautiful party mansion for all your party dinosaur needs'
@@ -46,6 +42,13 @@ feature "creating a space" do
     expect(page).to have_content('£100')
     expect(page).to have_content('31/12/2019')
     expect(page).to have_content('01/02/2020')
+  end
+
+  scenario "user can click button to go back to listings page from create new space page" do
+    signup_and_in
+    visit('/create')
+    click_button('Back')
+    expect(page).to have_content('Welcome to Jurassic Park')
   end
 
 
