@@ -30,13 +30,7 @@ feature "creating a space" do
 
   scenario "property owner can fill in information and then view it on the listings page" do
     signup_and_in
-    visit ('/create')
-    fill_in 'property_name', with: 'Dino mansion'
-    fill_in 'description', with: 'A beautiful party mansion for all your party dinosaur needs'
-    fill_in 'price_per_night', with: '£100'
-    fill_in 'available_from', with: '31/12/2019'
-    fill_in 'available_to', with: '01/02/2020'
-    click_button('Submit')
+    create_space
     expect(page).to have_content('Dino mansion')
     expect(page).to have_content('A beautiful party mansion for all your party dinosaur needs')
     expect(page).to have_content('£100')
