@@ -27,7 +27,7 @@ class Dinosaur_Bnb < Sinatra::Base
     erb(:create)
   end
 
-  post '/new-space'
+  post '/new-space' do
     userID = session['userID']
     Space.create(name: params[:property_name], description: params[:description], price: params[:price_per_night], available_from: params[:available_from], available_to: params[:available_to], created_by: userID)
     redirect '/spaces'
@@ -101,4 +101,5 @@ class Dinosaur_Bnb < Sinatra::Base
   end
 
   run! if app_file == $0
+
 end
