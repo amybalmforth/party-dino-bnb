@@ -1,4 +1,3 @@
-require 'pg'
 require 'web_helpers'
 
 feature 'requesting spaces' do
@@ -7,7 +6,8 @@ feature 'requesting spaces' do
 
   before(:each) do
     allow(user).to receive(:id).and_return(1)
-    space = Spaces.create(name: 'home', description: 'urban area', price: '£50', available_from: 'November 18 2019', available_to: 'November 25 2019', created_by: user.id)
+    DataMapper.auto_migrate!
+    space = Space.create(name: 'home', description: 'urban area', price: '£50', available_from: 'November 18 2019', available_to: 'November 25 2019', created_by: user.id)
   end
 
   scenario 'user can request a space' do

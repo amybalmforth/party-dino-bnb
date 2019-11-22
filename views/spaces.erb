@@ -14,10 +14,11 @@
   <h1>Welcome to Jurassic Park, <%= @user.name %></h1>
 
   <br>
-  <form action="/create">
-    <button class="button">Create new listing</button>
+  <form action="/create" method='get'>
+    <button class="button" type='submit' name="create_new_listing">Create new listing</button>
   </form>
   <br>
+  
   <h1> A list of all spaces: </h1>
   <% @spaces.each do |space| %>
   <div>

@@ -1,22 +1,18 @@
-require 'pg'
+require 'web_helpers'
 
 feature 'edit spaces' do
 
   let(:user) { double(:user) }
 
   before(:each) do
+    DataMapper.auto_migrate!
     allow(user).to receive(:id).and_return(1)
-    space = Spaces.create(name: 'home', description: 'urban area', price: '£50', available_from: 'November 18 2019', available_to: 'November 25 2019', created_by: user.id)
   end
 
   scenario 'user can edit a space' do
-    conn = PG.connect(dbname: 'party_dino_bnb_test')
-    visit('/signup')
-    fill_in 'name', with: 'John Smith'
-    fill_in 'username', with: 'JohnSmith'
-    fill_in 'email', with: 'jsmith@gmail.com'
-    fill_in 'password', with: 'backseatfreestyle'
-    click_button('submit')
+    # conn = PG.connect(dbname: 'party_dino_bnb_test')
+    signup_and_in
+    create_new_listing
     click_button 'Edit'
     expect(find_field('description').value).to eq 'urban area'
   end
@@ -32,6 +28,7 @@ feature 'edit spaces' do
 
   scenario 'user can click the back button to go to the listings page' do
     signup_and_in
+    create_new_listing
     click_button('Edit')
     click_button('Back')
     expect(page).to have_content('Welcome to Jurassic Park')

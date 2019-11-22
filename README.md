@@ -25,5 +25,5 @@
 - User can sign up
 - A renter can request to hire a space
 - An owner can accept a request to hire a space
-- Spaces are not booked until the owner accepts the booking
+- Space are not booked until the owner accepts the booking
 - Booked spaces are no longer available
