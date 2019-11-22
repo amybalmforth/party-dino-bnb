@@ -1,15 +1,19 @@
-<!DOCTYPE html>
 <html>
 
 <head>
   <link href="https://fonts.googleapis.com/css?family=Neucha&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="<%= url("/stylesheet.css") %>">
+  <style>
+    body {
+      background-image: url("fern.jpg");
+    }
+  </style>
 </head>
 
 <body>
 
-  <h1>Welcome to Dinosaur BNB!</h1>
-
+  <h1 class='welcome'>Welcome to Dinosaur BNB!</h1>
+  <br>
   <iframe src="alan.wav" allow="autoplay" style="display:none" id="audio"></iframe>
 
   <audio controls autoplay>
@@ -17,7 +21,7 @@
   </audio>
 
   <br><br><br>
-  <img src="https://66.media.tumblr.com/840461f0dfd2998e24ad30486432c80b/tumblr_natxuxOyvD1qkhw3no1_250.gif">
+  <img src="https://66.media.tumblr.com/840461f0dfd2998e24ad30486432c80b/tumblr_natxuxOyvD1qkhw3no1_250.gif" width='800' height='450'>
   <br><br><br>
   <form action="/signup">
     <button class="button">Sign up for an account</button>

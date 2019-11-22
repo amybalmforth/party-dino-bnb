@@ -1,9 +1,9 @@
 .button {
   background-color: firebrick;
-  font-size: 16px;
+  font-size: 18px;
   color: #010101;
-  border-radius: 10px;
-  margin: 2px;
+  border-radius: 12px;
+  margin: 3px;
   font-family: 'Neucha', cursive;
 }
 
@@ -35,4 +35,9 @@ body {
   width: 600px;
   margin: auto;
   padding: 5px;
+}
+
+.logout {
+  text-align: right;
+  padding: 10px;
 }
