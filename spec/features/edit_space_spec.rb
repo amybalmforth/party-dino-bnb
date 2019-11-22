@@ -17,14 +17,14 @@ feature 'edit spaces' do
     expect(find_field('description').value).to eq 'urban area'
   end
 
-  # scenario 'edit can be saved' do
-  #   conn = PG.connect(dbname: 'party_dino_bnb_test')
-  #   visit('/spaces')
-  #   click_button 'Edit'
-  #   fill_in "name", with: 'bungalow'
-  #   click_button 'update'
-  #   expect(page).to have_content('bungalow')
-  # end
+  scenario 'edit can be saved' do
+    signup_and_in
+    visit('/spaces')
+    click_button 'Edit'
+    fill_in "name", with: 'bungalow'
+    click_button 'update'
+    expect(page).to have_content('bungalow')
+  end
 
   scenario 'user can click the back button to go to the listings page' do
     signup_and_in

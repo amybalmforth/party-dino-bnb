@@ -93,3 +93,14 @@ class Space
 
 
 end
+
+# class Space
+#   include DataMapper:Resource
+#
+#   property :id, Serial
+#   property :name, Text
+#   property :description, Text
+#   property :price, Integer
+#   property :available_from, DateTime
+#   property :available_to, DateTime
+# end

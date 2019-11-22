@@ -2,12 +2,7 @@ require 'web_helpers'
 
 feature 'sign up' do
   scenario 'user wants to signup' do
-    visit('/signup')
-    fill_in 'name', with: 'John Smith'
-    fill_in 'username', with: 'JohnSmith'
-    fill_in 'email', with: 'jsmith@gmail.com'
-    fill_in 'password', with: 'backseatfreestyle'
-    click_button('submit')
+    signup_and_in
     expect(page).to have_content 'Welcome to Jurassic Park, John Smith'
   end
 
@@ -28,12 +23,8 @@ feature 'sign up' do
   end
 
   scenario 'existing user can visit spaces page' do
-    visit('/signup')
-    fill_in 'name', with: 'John Smith'
-    fill_in 'username', with: 'JohnSmith'
-    fill_in 'email', with: 'jsmith@gmail.com'
-    fill_in 'password', with: 'backseatfreestyle'
-    click_button('submit')
+    signup_and_in
+    click_button('Logout')
     visit('/login')
     fill_in 'username', with: 'JohnSmith'
     fill_in 'password', with: 'backseatfreestyle'
@@ -43,12 +34,8 @@ feature 'sign up' do
   end
 
   scenario 'existing user gets password wrong' do
-    visit('/signup')
-    fill_in 'name', with: 'John Smith'
-    fill_in 'username', with: 'JohnSmith'
-    fill_in 'email', with: 'jsmith@gmail.com'
-    fill_in 'password', with: 'backseatfreestyle'
-    click_button('submit')
+    signup_and_in
+    click_button('Logout')
     visit('/login')
     fill_in 'username', with: 'JohnSmith'
     fill_in 'password', with: 'cantrememberimanidiot'
