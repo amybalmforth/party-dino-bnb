@@ -78,18 +78,18 @@
 
 require "data_mapper"
 require "dm-postgres-adapter"
+require "dm-rspec"
 
 class Space
   include DataMapper::Resource
 
   property :id,                 Serial
-  property :name,               String
-  property :description,        String
-  property :price,              Integer
-  property :available_from,     Date
-  property :available_to,       Date
-  property :created_by,         String
-  property :requested_by,       String
-  property :booked_by,          String
+  property :name,               Text
+  property :description,        Text
+  property :price,              Text
+  property :available_from,     Text
+  property :available_to,       Text
+  property :created_by,         Text
+
 
 end

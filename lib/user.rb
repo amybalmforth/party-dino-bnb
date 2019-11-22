@@ -39,6 +39,7 @@
 
 require "data_mapper"
 require "dm-postgres-adapter"
+require "dm-rspec"
 
 class User
   include DataMapper::Resource

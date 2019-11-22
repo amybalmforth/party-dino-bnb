@@ -1,6 +1,7 @@
 <html>
 
 <head>
+  <meta charset="UTF-8">
   <link href="https://fonts.googleapis.com/css?family=Neucha&display=swap" rel="stylesheet">
   <link rel="styleSheet" typle="text/css" href="<%= url("/styleSheet.css") %>">
 </head>
@@ -15,12 +16,12 @@ List your property
   <label for="description">Description</label>
   <input type="text" name="description"><br>
   <label for="price_per_night">Price per night £</label>
-  <input data-type="currency" name="price_per_night"><br>
+  <input type="text" name="price_per_night"><br>
   <label for="available_from">Available from</label>
-  <input type="date" name="available_from"><br>
+  <input type="text" name="available_from"><br>
   <label for="available_to">Available to</label>
-  <input type="date" name="available_to"><br>
-  <button class="button" type='submit' name="Submit">Submit</button>
+  <input type="text" name="available_to"><br>
+  <input class="button" type='submit' name="Submit">Submit</input>
 </form>
 
 <form id="back" action="/spaces" method="get">

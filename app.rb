@@ -1,6 +1,8 @@
 require 'sinatra/base'
 require_relative 'lib/space'
 require_relative 'lib/user'
+require "dm-rspec"
+require "data_mapper"
 
 class Dinosaur_Bnb < Sinatra::Base
   enable :sessions
@@ -8,13 +10,13 @@ class Dinosaur_Bnb < Sinatra::Base
 
   if ENV['ENVIRONMENT'] == 'test'
     p "selecting test database"
-    DataMapper.setup :default, "postgres://#{ENV["USER"]}@localhost/party_dino_bnb_test"
+    DataMapper.setup :default, "postgres://#{ENV["user"]}@localhost/party_dino_bnb_test"
   else
     p "selecting live database"
-    DataMapper.setup :default, "postgres://#{ENV["USER"]}@localhost/party_dino_bnb"
+    DataMapper.setup :default, "postgres://#{ENV["user"]}@localhost/party_dino_bnb"
   end
   DataMapper.finalize
-  DataMapper.auto_upgrade!
+  # DataMapper.auto_upgrade!
 
 
   get '/' do
@@ -26,9 +28,8 @@ class Dinosaur_Bnb < Sinatra::Base
   end
 
   post '/new-space' do
-    # Space.create(name: params[:property_name], description: params[:description], price: params[:price_per_night], available_from: params[:available_from], available_to: params[:available_to], created_by: session['userID'])
     userID = session['userID']
-    Space.create(:name => params[:property_name], :description => params[:description], :price => params[:price_per_night], :available_from => params[:available_from], :available_to => params[:available_to], :created_by => userID)
+    Space.create(name: params[:property_name], description: params[:description], price: params[:price_per_night], available_from: params[:available_from], available_to: params[:available_to], created_by: userID)
     redirect '/spaces'
   end
 
@@ -36,7 +37,6 @@ class Dinosaur_Bnb < Sinatra::Base
     user = User.first(:id => session['userID'])
     @user = user
     @spaces = Space.all.reverse
-    p "spaces: #{@spaces} "
     erb :spaces
   end
 
@@ -45,7 +45,7 @@ class Dinosaur_Bnb < Sinatra::Base
   end
 
   post '/signup' do
-    user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+    p user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     session['userID'] = user.id
     redirect '/spaces'
   end
