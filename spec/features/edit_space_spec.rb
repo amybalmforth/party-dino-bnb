@@ -19,6 +19,7 @@ feature 'edit spaces' do
 
   scenario 'edit can be saved' do
     signup_and_in
+    create_new_listing
     visit('/spaces')
     click_button 'Edit'
     fill_in "name", with: 'bungalow'
