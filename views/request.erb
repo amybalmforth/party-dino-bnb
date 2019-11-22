@@ -2,13 +2,18 @@
 
 <head>
   <link href="https://fonts.googleapis.com/css?family=Neucha&display=swap" rel="stylesheet">
-  <link rel="styleSheet" typle="text/css" href="<%= url("/styleSheet.css") %>">
+  <link rel="stylesheet" type="text/css" href="<%= url("/stylesheet.css") %>">
+  <style>
+    body {
+      background-image: url("/jeff.jpg");
+    }
+  </style>
 </head>
 
 <body>
 
-<h3>Request:</h3>
-
+<h3 class='property'>Request:</h3>
+<div class='property'>
 Name: <%= @requested_space.name %>
 <br>
 Description: <%= @requested_space.description %>
@@ -18,7 +23,7 @@ Price per day: £<%= @requested_space.price %>
 Available from: <%= @requested_space.available_to %>
 <br>
 Available to: <%= @requested_space.available_from %>
-
+</div>
 <form action="/spaces/confirm" method="post">
   <button class="button" type="submit" name="Confirm" value="<%= @requested_space.id %>">Confirm</button>
 </form>

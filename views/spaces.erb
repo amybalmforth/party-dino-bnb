@@ -2,7 +2,12 @@
 
 <head>
   <link href="https://fonts.googleapis.com/css?family=Neucha&display=swap" rel="stylesheet">
-  <link rel="styleSheet" typle="text/css" href="<%= url("/styleSheet.css") %>">
+  <link rel="stylesheet" type="text/css" href="<%= url("/stylesheet.css") %>">
+  <style>
+    body {
+      background-image: url("jeff.jpg");
+    }
+  </style>
 </head>
 
 <body>
@@ -11,7 +16,7 @@
     <button class="button" type="submit">Logout</button>
   </form>
 
-  <h1>Welcome to Jurassic Park, <%= @user.name %></h1>
+  <h1 class='welcome'>Welcome to Jurassic Park, <%= @user.name %></h1>
 
   <img src="https://www.offgridweb.com/wp-content/uploads/2016/07/Primitive-technology-build-a-grass-hut-3.jpg" title='excellent hut' height='145' width='240'>
   <br>
@@ -22,7 +27,7 @@
 
   <h1> A list of all spaces: </h1>
   <% @spaces.each do |space| %>
-  <div>
+  <div class='space'>
     Name: <%= space.name %>
     <br>
     Description: <%= space.description %>

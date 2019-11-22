@@ -16,3 +16,23 @@ body {
 .audio {
   color: gold;
 }
+
+.property {
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 300px;
+  margin: auto;
+  padding: 10px;
+}
+
+.space {
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 300px;
+  margin: auto;
+  padding: 10px;
+}
+.welcome {
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 600px;
+  margin: auto;
+  padding: 5px;
+}

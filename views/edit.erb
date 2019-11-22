@@ -2,14 +2,19 @@
 
 <head>
   <link href="https://fonts.googleapis.com/css?family=Neucha&display=swap" rel="stylesheet">
-  <link rel="styleSheet" typle="text/css" href="<%= url("/styleSheet.css") %>">
+  <link rel="stylesheet" type="text/css" href="<%= url("/stylesheet.css") %>">
+  <style>
+    body {
+      background-image: url("jeff.jpg");
+    }
+  </style>
 </head>
 
 <body>
 
 <h2>Edit your space</h2>
 
-<form action="/spaces/update" method="post">
+<form action="/spaces/update" method="post" class="property">
   <label for="name">Space name</label>
   <input type="text" name="name" value="<%= @edit_space.name %>">
   <br>
@@ -31,6 +36,8 @@
 <form class="back" action="/spaces" method="get">
   <button class="button" type="submit" name="Back">Back</button>
 </form>
+
+<img src='https://i.telegraph.co.uk/multimedia/archive/01728/dinocrane_1728734a.gif'>
 
 </body>
 

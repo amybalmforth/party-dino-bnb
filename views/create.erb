@@ -3,12 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <link href="https://fonts.googleapis.com/css?family=Neucha&display=swap" rel="stylesheet">
-  <link rel="styleSheet" typle="text/css" href="<%= url("/styleSheet.css") %>">
+  <link rel="stylesheet" type="text/css" href="<%= url("/stylesheet.css") %>">
+  <style>
+    body {
+      background-image: url("jeff.jpg");
+    }
+  </style>
 </head>
 
 <body>
 
-List your property
+<h2>List your property</h2>
 
 <form class="property" action="/new-space" method="post">
   <label for="property_name">Property Name</label>
@@ -27,6 +32,8 @@ List your property
 <form id="back" action="/spaces" method="get">
   <button class="button" name="Back">Back</button>
 </form>
+
+<img src="http://2.bp.blogspot.com/-3eHVYcEjcyk/U5cbI_55QrI/AAAAAAAACZg/lXSuy6Oe_pE/s1600/IMG_2338.JPG" height='300' width='540'>
 
 </body>
 
