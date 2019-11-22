@@ -1,3 +1,5 @@
+require 'web_helpers'
+
 feature 'sign up' do
   scenario 'user wants to signup' do
     signup_and_in

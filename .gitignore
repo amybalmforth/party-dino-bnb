@@ -3,3 +3,4 @@
 
 # ignore all files in the coverage folder
 coverage/
+coverage/.resultset.json
