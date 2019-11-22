@@ -7,12 +7,14 @@ class Dinosaur_Bnb < Sinatra::Base
 
 
   if ENV['ENVIRONMENT'] == 'test'
+    p "selecting test database"
     DataMapper.setup :default, "postgres://#{ENV["USER"]}@localhost/party_dino_bnb_test"
   else
+    p "selecting live database"
     DataMapper.setup :default, "postgres://#{ENV["USER"]}@localhost/party_dino_bnb"
   end
   DataMapper.finalize
-  DataMapper.auto_migrate!
+  DataMapper.auto_upgrade!
 
 
   get '/' do
@@ -24,7 +26,9 @@ class Dinosaur_Bnb < Sinatra::Base
   end
 
   post '/new-space' do
-    Space.create(name: params[:property_name], description: params[:description], price: params[:price_per_night], available_from: params[:available_from], available_to: params[:available_to], created_by: session['userID'])
+    # Space.create(name: params[:property_name], description: params[:description], price: params[:price_per_night], available_from: params[:available_from], available_to: params[:available_to], created_by: session['userID'])
+    userID = session['userID']
+    Space.create(:name => params[:property_name], :description => params[:description], :price => params[:price_per_night], :available_from => params[:available_from], :available_to => params[:available_to], :created_by => userID)
     redirect '/spaces'
   end
 
@@ -32,6 +36,7 @@ class Dinosaur_Bnb < Sinatra::Base
     user = User.first(:id => session['userID'])
     @user = user
     @spaces = Space.all.reverse
+    p "spaces: #{@spaces} "
     erb :spaces
   end
 

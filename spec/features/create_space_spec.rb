@@ -39,6 +39,7 @@ feature "creating a space" do
     fill_in 'available_from', with: '31/12/2019'
     fill_in 'available_to', with: '01/02/2020'
     click_button('Submit')
+    save_and_open_page
     expect(page).to have_content('Dino mansion')
     expect(page).to have_content('A beautiful party mansion for all your party dinosaur needs')
     expect(page).to have_content('£100')
