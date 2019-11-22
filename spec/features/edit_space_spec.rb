@@ -5,6 +5,7 @@ feature 'edit spaces' do
   let(:user) { double(:user) }
 
   before(:each) do
+    DataMapper.auto_migrate!
     allow(user).to receive(:id).and_return(1)
   end
 

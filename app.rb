@@ -11,12 +11,12 @@ class Dinosaur_Bnb < Sinatra::Base
   if ENV['ENVIRONMENT'] == 'test'
     p "selecting test database"
     DataMapper.setup :default, "postgres://#{ENV["user"]}@localhost/party_dino_bnb_test"
+    DataMapper.finalize
   else
     p "selecting live database"
     DataMapper.setup :default, "postgres://#{ENV["user"]}@localhost/party_dino_bnb"
+    DataMapper.finalize
   end
-  DataMapper.finalize
-  # DataMapper.auto_upgrade!
 
 
   get '/' do
@@ -45,7 +45,7 @@ class Dinosaur_Bnb < Sinatra::Base
   end
 
   post '/signup' do
-    p user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+    user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     session['userID'] = user.id
     redirect '/spaces'
   end
@@ -73,7 +73,7 @@ class Dinosaur_Bnb < Sinatra::Base
   end
 
   post '/spaces/update' do
-    Space.update(id: session['edit_space'].id, name: params[:name], description: params[:description], price: params[:price], available_from: params[:available_from], available_to: params[:available_to])
+    Space.update(name: params[:name], description: params[:description], price: params[:price], available_from: params[:available_from], available_to: params[:available_to])
     redirect '/spaces'
   end
 
