@@ -13,12 +13,13 @@
 
   <h1>Welcome to Jurassic Park, <%= @user.name %></h1>
 
+  <img src="https://www.offgridweb.com/wp-content/uploads/2016/07/Primitive-technology-build-a-grass-hut-3.jpg" title='excellent hut' height='145' width='240'>
+  <br>
   <br>
   <form action="/create" method='get'>
     <button class="button" type='submit' name="create_new_listing">Create new listing</button>
   </form>
-  <br>
-  
+
   <h1> A list of all spaces: </h1>
   <% @spaces.each do |space| %>
   <div>

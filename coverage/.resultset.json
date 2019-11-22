@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/ellieaston/Projects/Party-Dinosaurs-BnB/app.rb": [
+      "/Users/student/Documents/Projects/group-projects/Party-Dinosaurs-BnB/app.rb": [
         1,
         1,
         1,
@@ -108,7 +108,7 @@
         null,
         null
       ],
-      "/Users/ellieaston/Projects/Party-Dinosaurs-BnB/lib/space.rb": [
+      "/Users/student/Documents/Projects/group-projects/Party-Dinosaurs-BnB/lib/space.rb": [
         null,
         null,
         null,
@@ -216,7 +216,7 @@
         null,
         null
       ],
-      "/Users/ellieaston/Projects/Party-Dinosaurs-BnB/lib/user.rb": [
+      "/Users/student/Documents/Projects/group-projects/Party-Dinosaurs-BnB/lib/user.rb": [
         null,
         null,
         null,
@@ -271,7 +271,7 @@
         null,
         null
       ],
-      "/Users/ellieaston/Projects/Party-Dinosaurs-BnB/spec/features/create_space_spec.rb": [
+      "/Users/student/Documents/Projects/group-projects/Party-Dinosaurs-BnB/spec/features/create_space_spec.rb": [
         1,
         null,
         1,
@@ -328,7 +328,7 @@
         null,
         null
       ],
-      "/Users/ellieaston/Projects/Party-Dinosaurs-BnB/spec/web_helpers.rb": [
+      "/Users/student/Documents/Projects/group-projects/Party-Dinosaurs-BnB/spec/web_helpers.rb": [
         1,
         16,
         16,
@@ -348,7 +348,7 @@
         3,
         null
       ],
-      "/Users/ellieaston/Projects/Party-Dinosaurs-BnB/spec/features/edit_space_spec.rb": [
+      "/Users/student/Documents/Projects/group-projects/Party-Dinosaurs-BnB/spec/features/edit_space_spec.rb": [
         1,
         null,
         1,
@@ -388,7 +388,7 @@
         null,
         null
       ],
-      "/Users/ellieaston/Projects/Party-Dinosaurs-BnB/spec/features/request_space_spec.rb": [
+      "/Users/student/Documents/Projects/group-projects/Party-Dinosaurs-BnB/spec/features/request_space_spec.rb": [
         1,
         null,
         1,
@@ -422,7 +422,7 @@
         null,
         null
       ],
-      "/Users/ellieaston/Projects/Party-Dinosaurs-BnB/spec/features/user_spec.rb": [
+      "/Users/student/Documents/Projects/group-projects/Party-Dinosaurs-BnB/spec/features/user_spec.rb": [
         1,
         null,
         1,
@@ -471,7 +471,7 @@
         null,
         null
       ],
-      "/Users/ellieaston/Projects/Party-Dinosaurs-BnB/spec/features/viewing_spaces_spec.rb": [
+      "/Users/student/Documents/Projects/group-projects/Party-Dinosaurs-BnB/spec/features/viewing_spaces_spec.rb": [
         1,
         null,
         1,
@@ -499,7 +499,7 @@
         null,
         null
       ],
-      "/Users/ellieaston/Projects/Party-Dinosaurs-BnB/spec/space_spec.rb": [
+      "/Users/student/Documents/Projects/group-projects/Party-Dinosaurs-BnB/spec/space_spec.rb": [
         1,
         1,
         null,
@@ -542,7 +542,7 @@
         2,
         null
       ],
-      "/Users/ellieaston/Projects/Party-Dinosaurs-BnB/spec/user_spec.rb": [
+      "/Users/student/Documents/Projects/group-projects/Party-Dinosaurs-BnB/spec/user_spec.rb": [
         1,
         1,
         null,
@@ -571,6 +571,6 @@
         null
       ]
     },
-    "timestamp": 1574433028
+    "timestamp": 1574433376
   }
 }
